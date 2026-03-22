@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salt & Syntax — Language Lessons Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sand: #F5F0E8;
+    --sand-dark: #EDE5D5;
+    --ink: #1C1C1A;
+    --ink-mid: #3D3C38;
+    --ink-soft: #6B6960;
+    --teal: #2C7873;
+    --teal-light: #EAF4F3;
+    --teal-pale: #F0F8F7;
+    --amber: #D4850A;
+    --amber-light: #FDF3E0;
+    --coral: #C9543C;
+    --white: #FFFFFF;
+    --font-serif: 'Lora', Georgia, serif;
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --radius: 12px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--sand);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 240, 232, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(44, 120, 115, 0.12);
+    padding: 0 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  .nav-logo span { color: var(--teal); }
+
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-mid);
+    font-size: 0.9rem;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal); }
+
+  .nav-cta {
+    background: var(--teal);
+    color: white !important;
+    padding: 8px 20px;
+    border-radius: 40px;
+    font-weight: 500 !important;
+    transition: background 0.2s, transform 0.15s !important;
+  }
+
+  .nav-cta:hover { background: #235f5b !important; transform: translateY(-1px); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 92vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px 5vw 60px;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--teal-light);
+    color: var(--teal);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 40px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--teal);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--teal);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: #235f5b; transform: translateY(-2px); }
+
+  .btn-ghost {
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: inline-flex; align-items: center; gap: 6px;
+    transition: gap 0.2s;
+  }
+
+  .btn-ghost:hover { gap: 10px; }
+
+  /* Hero visual — language globe */
+  .hero-visual {
+    display: flex; justify-content: center; align-items: center;
+    position: relative;
+    height: 440px;
+  }
+
+  .lang-card {
+    position: absolute;
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 20px 26px;
+    box-shadow: 0 8px 32px rgba(28, 28, 26, 0.1);
+    border: 1px solid rgba(28, 28, 26, 0.06);
+    transition: transform 0.4s ease;
+  }
+
+  .lang-card:hover { transform: translateY(-6px) scale(1.02); }
+
+  .lang-flag { font-size: 2rem; margin-bottom: 6px; }
+  .lang-name { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+  .lang-native { font-size: 0.8rem; color: var(--ink-soft); }
+
+  .lang-card.hr { top: 0; left: 50%; transform: translateX(-50%); }
+  .lang-card.hr:hover { transform: translateX(-50%) translateY(-6px) scale(1.02); }
+  .lang-card.en { bottom: 30px; left: 0; }
+  .lang-card.de { bottom: 30px; right: 0; }
+
+  .connect-line {
+    position: absolute;
+    width: 200px; height: 200px;
+    border: 1.5px dashed rgba(44, 120, 115, 0.2);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .center-dot {
+    position: absolute;
+    width: 48px; height: 48px;
+    background: var(--teal);
+    border-radius: 50%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1.2rem;
+    box-shadow: 0 0 0 12px rgba(44, 120, 115, 0.1);
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    background: var(--white);
+    border-top: 1px solid rgba(28, 28, 26, 0.07);
+    border-bottom: 1px solid rgba(28, 28, 26, 0.07);
+    padding: 20px 5vw;
+    display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--ink-soft); font-size: 0.88rem;
+  }
+
+  .trust-item strong { color: var(--ink); font-weight: 500; }
+
+  .trust-icon {
+    width: 32px; height: 32px;
+    background: var(--teal-light);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.95rem;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 96px 5vw; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-sub {
+    color: var(--ink-soft);
+    max-width: 560px;
+    font-size: 1.02rem;
+    line-height: 1.8;
+  }
+
+  /* ── LANGUAGES ── */
+  #languages { background: var(--white); }
+
+  .languages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .language-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(28, 28, 26, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .language-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(28, 28, 26, 0.1);
+  }
+
+  .lang-card-header {
+    padding: 32px 28px 24px;
+    position: relative;
+  }
+
+  .lang-card-header.hr-bg { background: linear-gradient(135deg, #F0F8F7 0%, #EAF4F3 100%); }
+  .lang-card-header.en-bg { background: linear-gradient(135deg, #FDF3E0 0%, #FEF6E8 100%); }
+  .lang-card-header.de-bg { background: linear-gradient(135deg, #FDF0EE 0%, #FCE8E4 100%); }
+
+  .lang-card-flag { font-size: 2.8rem; margin-bottom: 12px; display: block; }
+
+  .lang-card-name {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .lang-card-tag {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 8px;
+  }
+
+  .tag-teal { background: var(--teal-light); color: var(--teal); }
+  .tag-amber { background: var(--amber-light); color: var(--amber); }
+  .tag-coral { background: rgba(201, 84, 60, 0.1); color: var(--coral); }
+
+  .lang-card-body { padding: 24px 28px 28px; background: var(--white); }
+
+  .lang-card-body p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.7; margin-bottom: 16px; }
+
+  .lang-who {
+    font-size: 0.82rem; color: var(--ink-soft);
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  .lang-who::before {
+    content: '';
+    display: inline-block;
+    width: 4px; height: 4px;
+    background: var(--teal);
+    border-radius: 50%;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--sand); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(160deg, var(--teal-light) 0%, var(--sand-dark) 100%);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: var(--teal);
+    font-size: 0.9rem;
+    border: 1px solid rgba(44, 120, 115, 0.15);
+  }
+
+  .about-photo-placeholder .portrait-icon {
+    font-size: 4rem;
+    opacity: 0.6;
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: -20px; right: -20px;
+    background: var(--teal);
+    color: white;
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 8px 24px rgba(44, 120, 115, 0.3);
+    max-width: 180px;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  .about-badge strong { font-size: 1.6rem; display: block; margin-bottom: 2px; }
+
+  .about-content .section-title { margin-bottom: 1.5rem; }
+
+  .about-content p {
+    color: var(--ink-soft);
+    margin-bottom: 1.2rem;
+    line-height: 1.85;
+  }
+
+  .about-langs {
+    display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2rem;
+  }
+
+  .lang-pill {
+    background: var(--white);
+    border: 1px solid rgba(28, 28, 26, 0.1);
+    border-radius: 40px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    color: var(--ink-mid);
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  #how { background: var(--white); }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+    position: relative;
+  }
+
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 28px; left: 5%; right: 5%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--teal-light) 20%, var(--teal-light) 80%, transparent);
+  }
+
+  .step {
+    text-align: center;
+    position: relative;
+  }
+
+  .step-num {
+    width: 56px; height: 56px;
+    background: var(--white);
+    border: 2px solid var(--teal-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--teal);
+    margin: 0 auto 20px;
+    position: relative; z-index: 1;
+  }
+
+  .step h3 {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .step p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.7; }
+
+  /* ── PRICING ── */
+  #pricing { background: var(--sand); }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+    align-items: start;
+  }
+
+  .price-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 36px 28px;
+    border: 1px solid rgba(28, 28, 26, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .price-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(28, 28, 26, 0.1);
+  }
+
+  .price-card.featured {
+    background: var(--teal);
+    border-color: var(--teal);
+    color: white;
+    transform: scale(1.02);
+  }
+
+  .price-card.featured:hover { transform: scale(1.02) translateY(-4px); }
+
+  .price-label {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; margin-bottom: 16px;
+    color: var(--teal);
+  }
+
+  .price-card.featured .price-label { color: rgba(255,255,255,0.75); }
+
+  .price-name {
+    font-family: var(--font-serif);
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--ink); margin-bottom: 20px;
+  }
+
+  .price-card.featured .price-name { color: white; }
+
+  .price-amount {
+    font-size: 2.6rem; font-weight: 300;
+    color: var(--ink); line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price-card.featured .price-amount { color: white; }
+
+  .price-period { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 28px; }
+  .price-card.featured .price-period { color: rgba(255,255,255,0.7); }
+
+  .price-divider {
+    height: 1px;
+    background: rgba(28, 28, 26, 0.08);
+    margin-bottom: 24px;
+  }
+
+  .price-card.featured .price-divider { background: rgba(255,255,255,0.2); }
+
+  .price-features { list-style: none; margin-bottom: 32px; }
+
+  .price-features li {
+    font-size: 0.9rem; color: var(--ink-soft);
+    padding: 7px 0;
+    display: flex; align-items: center; gap: 10px;
+  }
+
+  .price-card.featured .price-features li { color: rgba(255,255,255,0.85); }
+
+  .price-features li::before {
+    content: '✓';
+    color: var(--teal); font-weight: 600; font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .price-card.featured .price-features li::before { color: rgba(255,255,255,0.9); }
+
+  .btn-pricing {
+    display: block; text-align: center; text-decoration: none;
+    padding: 13px 20px;
+    border-radius: 40px;
+    font-weight: 500; font-size: 0.92rem;
+    transition: all 0.2s;
+  }
+
+  .btn-pricing-outline {
+    border: 1.5px solid rgba(44, 120, 115, 0.3);
+    color: var(--teal);
+    background: transparent;
+  }
+
+  .btn-pricing-outline:hover { background: var(--teal-light); }
+
+  .btn-pricing-white {
+    background: white;
+    color: var(--teal);
+  }
+
+  .btn-pricing-white:hover { background: var(--sand); }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--white); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .testimonial {
+    background: var(--sand);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    border: 1px solid rgba(28, 28, 26, 0.06);
+  }
+
+  .testimonial-stars {
+    color: var(--amber);
+    font-size: 0.9rem; letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-text {
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--ink-mid);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 0.97rem;
+  }
+
+  .testimonial-author { display: flex; align-items: center; gap: 10px; }
+
+  .author-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--teal-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem; font-weight: 600; color: var(--teal);
+    flex-shrink: 0;
+  }
+
+  .author-name { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
+  .author-meta { font-size: 0.78rem; color: var(--ink-soft); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--teal); }
+  #contact .section-label { color: rgba(255,255,255,0.65); }
+  #contact .section-title { color: white; }
+  #contact .section-sub { color: rgba(255,255,255,0.75); max-width: 500px; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 56px;
+  }
+
+  .contact-form {
+    display: flex; flex-direction: column; gap: 16px;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+  .form-group label {
+    font-size: 0.82rem; font-weight: 500;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    color: white;
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.45); }
+
+  .form-group select { cursor: pointer; }
+  .form-group select option { background: var(--teal); color: white; }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.18);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .btn-submit {
+    background: white;
+    color: var(--teal);
+    border: none;
+    border-radius: 40px;
+    padding: 14px 32px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    align-self: flex-start;
+  }
+
+  .btn-submit:hover { background: var(--sand); transform: translateY(-2px); }
+
+  .contact-info { color: rgba(255,255,255,0.85); }
+
+  .contact-info h3 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem; color: white;
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-icon {
+    width: 40px; height: 40px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-item-text strong { display: block; font-weight: 500; color: white; margin-bottom: 2px; }
+  .contact-item-text span { font-size: 0.88rem; color: rgba(255,255,255,0.65); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(255,255,255,0.5);
+    padding: 40px 5vw;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    font-size: 0.85rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-serif);
+    color: white;
+    font-size: 1.1rem;
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: rgba(44, 120, 115, 0.9); }
+
+  footer a { color: rgba(255,255,255,0.5); text-decoration: none; margin-left: 20px; }
+  footer a:hover { color: white; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up { animation: fadeUp 0.7s ease both; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.35s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 48px; min-height: auto; }
+    .hero-visual { height: 300px; }
+    .languages-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .steps::before { display: none; }
+    .price-card.featured { transform: none; }
+    nav { padding: 0 4vw; }
+    .nav-links { display: none; }
+    .trust-bar { gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Salt <span>&</span> Syntax</a>
+  <ul class="nav-links">
+    <li><a href="#languages">Languages</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact" class="nav-cta">Book a free trial</a></li>
+  </ul>
+  <a href="#contact" class="btn-primary" style="display:none;display:inline-block;" id="mobile-cta">Book trial</a>
+</nav>
+
+<!-- HERO -->
+<section style="padding: 0;">
+  <div class="hero">
+    <div class="fade-up">
+      <div class="hero-eyebrow">Online lessons · Croatian · English · German</div>
+      <h1>Language isn't<br>a subject — it's a<br><em>superpower.</em></h1>
+      <p class="hero-sub delay-1">Personal 1-on-1 lessons with a tutor who speaks six languages and understands exactly what it feels like to learn one from scratch. For adults and children.</p>
+      <div class="hero-actions delay-2">
+        <a href="#contact" class="btn-primary">Book a free trial lesson</a>
+        <a href="#how" class="btn-ghost">How it works →</a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-up delay-3">
+      <div class="connect-line"></div>
+      <div class="connect-line" style="width:300px;height:300px;opacity:0.4"></div>
+      <div class="center-dot">🌊</div>
+
+      <div class="lang-card hr">
+        <div class="lang-flag">🇭🇷</div>
+        <div class="lang-name">Hrvatski</div>
+        <div class="lang-native">Croatian — your mother tongue</div>
+      </div>
+
+      <div class="lang-card en">
+        <div class="lang-flag">🇬🇧</div>
+        <div class="lang-name">English</div>
+        <div class="lang-native">From beginner to fluent</div>
+      </div>
+
+      <div class="lang-card de">
+        <div class="lang-flag">🇩🇪</div>
+        <div class="lang-name">Deutsch</div>
+        <div class="lang-native">All levels welcome</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <div class="trust-icon">🗣️</div>
+    <span><strong>6 languages</strong> spoken by your tutor</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">👩‍👧</div>
+    <span><strong>Adults & kids</strong> — all ages welcome</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">💻</div>
+    <span><strong>100% online</strong> — learn from anywhere</span>
+  </div>
+  <div class="trust-item">
+    <div class="trust-icon">🎯</div>
+    <span><strong>Free trial</strong> — no commitment</span>
+  </div>
+</div>
+
+<!-- LANGUAGES -->
+<section id="languages">
+  <div class="section-inner">
+    <div class="section-label">What I teach</div>
+    <h2 class="section-title">Three languages,<br>one dedicated tutor</h2>
+    <p class="section-sub">Whether you're a Croatian learning English for work, a child starting German, or a foreigner falling in love with Croatian — this is the right place.</p>
+
+    <div class="languages-grid">
+
+      <div class="language-card">
+        <div class="lang-card-header hr-bg">
+          <span class="lang-card-flag">🇭🇷</span>
+          <div class="lang-card-name">Croatian</div>
+          <div class="lang-card-tag tag-teal">Native language</div>
+        </div>
+        <div class="lang-card-body">
+          <p>Born and raised speaking Croatian, I teach it with the nuance, warmth, and cultural depth that only a native speaker can offer. Perfect for expats, travellers, and anyone enchanted by the Adriatic.</p>
+          <div class="lang-who">For: foreigners wanting to learn Croatian</div>
+        </div>
+      </div>
+
+      <div class="language-card">
+        <div class="lang-card-header en-bg">
+          <span class="lang-card-flag">🇬🇧</span>
+          <div class="lang-card-name">English</div>
+          <div class="lang-card-tag tag-amber">Fluent speaker</div>
+        </div>
+        <div class="lang-card-body">
+          <p>English for careers, travel, exams, or everyday life. I know the struggles Croatian speakers face — from false friends to that tricky th sound — and I know how to solve them.</p>
+          <div class="lang-who">For: Croatians of all ages, adults & kids</div>
+        </div>
+      </div>
+
+      <div class="language-card">
+        <div class="lang-card-header de-bg">
+          <span class="lang-card-flag">🇩🇪</span>
+          <div class="lang-card-name">German</div>
+          <div class="lang-card-tag tag-coral">Fluent speaker</div>
+        </div>
+        <div class="lang-card-body">
+          <p>German grammar can feel overwhelming — the cases, the word order, the compound nouns. As a fluent speaker who learned it myself, I make it click, step by step.</p>
+          <div class="lang-who">For: Croatians moving to Germany or Austria</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+
+      <div class="about-visual">
+        <div class="about-photo-placeholder">
+          <div class="portrait-icon">🧑‍🏫</div>
+          <span style="color: var(--teal); font-size: 0.85rem;">Add your photo here</span>
+        </div>
+        <div class="about-badge">
+          <strong>6</strong>
+          languages spoken
+        </div>
+      </div>
+
+      <div class="about-content">
+        <div class="section-label">About your tutor</div>
+        <h2 class="section-title">I know what it takes to truly learn a language</h2>
+        <p>I'm a Croatian tutor based in Rijeka, and I speak six languages. That's not a party trick — it means I understand learning a language from the inside out: the frustration of grammar rules that don't make sense, the joy of the first real conversation, the patience it takes to get there.</p>
+        <p>I offer warm, structured, and flexible online lessons tailored to you — whether you're a complete beginner, preparing for an exam, moving to a new country, or raising a bilingual child.</p>
+        <p>Every lesson is 1-on-1. No big groups, no cookie-cutter syllabi. Just us, your goals, and a plan that works.</p>
+
+        <div class="about-langs">
+          <div class="lang-pill">🇭🇷 Croatian</div>
+          <div class="lang-pill">🇬🇧 English</div>
+          <div class="lang-pill">🇩🇪 German</div>
+          <div class="lang-pill">+ 3 more languages</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="section-label">The process</div>
+    <h2 class="section-title">Simple, friendly, effective</h2>
+    <p class="section-sub">Getting started is easy. No complicated onboarding, no pressure. Just a conversation about where you are and where you want to go.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Free trial lesson</h3>
+        <p>We meet online, chat about your goals, and have a taster lesson — completely free and with no strings attached.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Your personal plan</h3>
+        <p>Based on your level and goals, I put together a learning plan just for you — flexible to fit around your life.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Weekly lessons</h3>
+        <p>We meet via video call each week. Lessons are interactive, practical, and always a little fun.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h3>You start speaking</h3>
+        <p>Real progress you can feel — conversations, confidence, and the satisfaction of truly knowing a language.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-inner">
+    <div class="section-label">Investment</div>
+    <h2 class="section-title">Honest, transparent pricing</h2>
+    <p class="section-sub">Choose the plan that fits your schedule. All lessons are 1-on-1, 60 minutes, and include a free trial to start.</p>
+
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-label">Occasional</div>
+        <div class="price-name">Pay as you go</div>
+        <div class="price-amount">€25</div>
+        <div class="price-period">per lesson</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>1 lesson at a time</li>
+          <li>60-minute session</li>
+          <li>Any language</li>
+          <li>Flexible scheduling</li>
+          <li>Free first trial</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-pricing-outline">Get started</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-label">Most popular</div>
+        <div class="price-name">Monthly pack</div>
+        <div class="price-amount">€80</div>
+        <div class="price-period">per month · 4 lessons</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>4 lessons per month</li>
+          <li>60-minute sessions</li>
+          <li>Any language</li>
+          <li>Fixed weekly slot</li>
+          <li>Homework & materials</li>
+          <li>Progress tracking</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-pricing-white">Get started</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-label">Intensive</div>
+        <div class="price-name">Twice a week</div>
+        <div class="price-amount">€140</div>
+        <div class="price-period">per month · 8 lessons</div>
+        <div class="price-divider"></div>
+        <ul class="price-features">
+          <li>8 lessons per month</li>
+          <li>60-minute sessions</li>
+          <li>Any language</li>
+          <li>Priority scheduling</li>
+          <li>Full materials included</li>
+          <li>Best for rapid progress</li>
+        </ul>
+        <a href="#contact" class="btn-pricing btn-pricing-outline">Get started</a>
+      </div>
+
+    </div>
+    <p style="text-align:center;margin-top:28px;font-size:0.85rem;color:var(--ink-soft);">Special rates for children and families — ask me about group discounts.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <div class="section-label">What students say</div>
+    <h2 class="section-title">Real words from real learners</h2>
+    <p class="section-sub">Placeholder testimonials — replace with real student reviews as you collect them.</p>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I'd tried apps and group classes before, but nothing clicked until these 1-on-1 lessons. After two months I was having real conversations in English at work."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">MK</div>
+          <div>
+            <div class="author-name">Maja K.</div>
+            <div class="author-meta">Zagreb · Learning English</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"My daughter (age 9) looks forward to every lesson. The approach with kids is so natural — she doesn't even realise how much German she's picked up."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">TB</div>
+          <div>
+            <div class="author-name">Tomislav B.</div>
+            <div class="author-meta">Split · His daughter learning German</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I moved to Rijeka from London and desperately needed Croatian. The lessons felt like a chat with a friend — not a textbook. I can now shop, chat with neighbours, get around."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SH</div>
+          <div>
+            <div class="author-name">Sophie H.</div>
+            <div class="author-meta">London → Rijeka · Learning Croatian</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get in touch</div>
+    <h2 class="section-title">Book your free trial lesson</h2>
+    <p class="section-sub">Fill in the form and I'll get back to you within 24 hours to schedule your first lesson. No commitment, no pressure.</p>
+
+    <div class="contact-grid">
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First name</label>
+            <input type="text" placeholder="Ana">
+          </div>
+          <div class="form-group">
+            <label>Last name</label>
+            <input type="text" placeholder="Horvat">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email address</label>
+          <input type="email" placeholder="ana@example.com">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Language I want to learn</label>
+            <select>
+              <option value="">Select a language</option>
+              <option>English</option>
+              <option>German</option>
+              <option>Croatian</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Lessons are for</label>
+            <select>
+              <option value="">Select</option>
+              <option>Me (adult)</option>
+              <option>My child</option>
+              <option>Both of us</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Anything else? (optional)</label>
+          <textarea placeholder="Your current level, goals, availability..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">Send my request →</button>
+      </form>
+
+      <div class="contact-info">
+        <h3>I'd love to hear from you</h3>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>Based in Rijeka, Croatia</strong>
+            <span>Teaching students worldwide online</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div class="contact-item-text">
+            <strong>hello@saltandsyntax.com</strong>
+            <span>I reply within 24 hours</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div class="contact-item-text">
+            <strong>WhatsApp & Viber</strong>
+            <span>Add your number here</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div class="contact-item-text">
+            <strong>Flexible scheduling</strong>
+            <span>Morning, afternoon, and evening slots — weekdays and weekends</span>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 20px; background: rgba(255,255,255,0.12); border-radius: 12px; border: 1px solid rgba(255,255,255,0.2);">
+          <p style="color:rgba(255,255,255,0.9); font-size:0.92rem; line-height:1.7;">
+            <strong style="color:white;">The first lesson is always free.</strong><br>
+            No payment details needed upfront. Let's just meet, chat, and see if we're a good fit.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Salt <span>&</span> Syntax</a>
+  <span>© 2025 Salt & Syntax · Online language lessons · Rijeka, Croatia</span>
+  <div>
+    <a href="#languages">Languages</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.btn-submit');
+  btn.textContent = '✓ Sent! I\'ll be in touch soon.';
+  btn.style.background = '#EAF4F3';
+  btn.style.color = '#2C7873';
+  btn.disabled = true;
+}
+
+// Intersection observer for scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) {
+      el.target.style.opacity = '1';
+      el.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.language-card, .step, .price-card, .testimonial').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
