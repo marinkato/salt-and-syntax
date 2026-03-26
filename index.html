@@ -1023,8 +1023,6 @@
   </div>
 </section>
 
-
-
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="section-inner">
@@ -1082,25 +1080,26 @@
     <p class="section-sub">Fill in the form and I'll get back to you within 24 hours to schedule your first lesson. No commitment, no pressure.</p>
 
     <div class="contact-grid">
-      <form class="contact-form" action="https://formspree.io/f/xnjonjvr" method="POST"></form>
+
+      <form class="contact-form" action="https://formspree.io/f/xnjonjvr" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label>First name</label>
-            <input type="text" placeholder="Ana">
+            <input type="text" name="first-name" placeholder="Ana">
           </div>
           <div class="form-group">
             <label>Last name</label>
-            <input type="text" placeholder="Horvat">
+            <input type="text" name="last-name" placeholder="Horvat">
           </div>
         </div>
         <div class="form-group">
           <label>Email address</label>
-          <input type="email" placeholder="ana@example.com">
+          <input type="email" name="email" placeholder="ana@example.com">
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Language I want to learn</label>
-            <select>
+            <select name="language">
               <option value="">Select a language</option>
               <option>English</option>
               <option>German</option>
@@ -1109,7 +1108,7 @@
           </div>
           <div class="form-group">
             <label>Lessons are for</label>
-            <select>
+            <select name="lessons-for">
               <option value="">Select</option>
               <option>Me (adult)</option>
               <option>My child</option>
@@ -1119,7 +1118,7 @@
         </div>
         <div class="form-group">
           <label>Anything else? (optional)</label>
-          <textarea placeholder="Your current level, goals, availability..."></textarea>
+          <textarea name="message" placeholder="Your current level, goals, availability..."></textarea>
         </div>
         <button type="submit" class="btn-submit">Send my request →</button>
       </form>
@@ -1183,15 +1182,6 @@
 </footer>
 
 <script>
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit');
-  btn.textContent = '✓ Sent! I\'ll be in touch soon.';
-  btn.style.background = '#EAF4F3';
-  btn.style.color = '#2C7873';
-  btn.disabled = true;
-}
-
 // Intersection observer for scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(el => {
