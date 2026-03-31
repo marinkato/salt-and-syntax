@@ -148,14 +148,30 @@
   }
 
   .shimmer-text {
-    background: linear-gradient(90deg, #8DCFAA 0%, #3D9990 25%, #2C7873 55%, #1a4f4c 80%, #0d2e2c 100%);
-    background-size: 400% auto;
+    background: linear-gradient(90deg, #8DCFAA 0%, #5BBAB3 30%, #2C7873 60%, #1a4f4c 80%, #0d2e2c 100%);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shimmer 5s linear infinite;
+    animation: shimmer 3s ease-out forwards;
     font-style: italic;
     font-weight: 400;
+  }
+
+  .shimmer-world {
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .shimmer-about {
+    background: linear-gradient(90deg, #8DCFAA 0%, #5BBAB3 30%, #2C7873 60%, #1a4f4c 80%, #0d2e2c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-out forwards;
+    font-weight: 600;
+    display: block;
   }
 
   .hero-sub {
@@ -810,7 +826,7 @@
   <div class="hero">
     <div class="fade-up">
       <div class="hero-eyebrow">Online lessons · Croatian · English · German</div>
-      <h1>Language isn't<br>a subject <span class="slide-in"><span style="opacity: 0.2;">.</span><span style="opacity: 0.45;">.</span><span style="opacity: 0.7;">.</span></span> it's your <br><em class="shimmer-text">way into the world.</em></h1>
+      <h1>Language isn't<br>a subject <span class="slide-in"><span style="opacity: 0.2;">.</span><span style="opacity: 0.45;">.</span><span style="opacity: 0.7;">.</span></span> it's your <br><em class="shimmer-text">way into the <span class="shimmer-world">world.</span></em></h1>
       <p class="hero-sub delay-1"> Some doors only open when you speak the language. Personal 1-on-1 lessons with a tutor who speaks six languages and understands exactly what it feels like to learn one from scratch. For adults and children.</p>
       <div class="hero-actions delay-2">
         <a href="https://cal.eu/salt-and-syntax" target="_blank" class="btn-primary">Book a free trial lesson</a>
@@ -931,7 +947,7 @@
 
       <div class="about-content">
         <div class="section-label">About your tutor</div>
-        <h2 class="section-title">"Learning a language ist nicht leicht / non è facile / ni lahko.</h2>
+        <h2 class="section-title">Learning a language<span style="opacity: 0.2;">.</span><span style="opacity: 0.45;">.</span><span style="opacity: 0.7;">.</span><br><span class="shimmer-about">ist nicht leicht – non è facile – ni lahko.</span></h2>
         <p>I'm Marina Toto, a Croatian tutor based in Kastav, a medieval hilltop town near Rijeka, with an MA in Sociology and a passion for language that spans six languages; none of them came easy, especially German 🫠. I draw on TESOL methodology, focused on real communication rather than just grammar rules. Learning from the inside out is something I know well: the frustration, the shame of making mistakes, the breakthroughs, the patience it takes to get there.</p>
         <p>I offer warm, structured, and flexible online lessons tailored to you; whether you're a complete beginner, preparing for an exam, moving to a new country, or raising a bilingual child.</p>
         <p>Every lesson is 1-on-1. No big groups, no generic lesson plans. Just us, your goals, and a plan that works.</p>
@@ -1163,7 +1179,7 @@
         <div class="contact-item">
           <div class="contact-icon">📧</div>
           <div class="contact-item-text">
-            <strong>hello@saltandsyntax.me</strong>
+            <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="660e030a0a092615070a12070802151f0812071e480b03">[email&#160;protected]</a></strong>
             <span>I reply within 24 hours</span>
           </div>
         </div>
@@ -1199,7 +1215,10 @@
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">Salt <span>&</span> Syntax</a>
-  <span>© 2026 Salt & Syntax · Online language lessons · Kastav, Croatia</span>
+  <div style="text-align:center;">
+    <span style="display:block;">© 2026 Salt & Syntax · Online language lessons · Kastav, Croatia</span>
+    <span style="display:block; font-size:0.78rem; margin-top:4px; opacity:0.6;">Obrt za usluge vl. Marina Toto · Trinajstići 61, 51215 Kastav, Croatia</span>
+  </div>
   <div>
     <a href="#languages">Languages</a>
     <a href="#pricing">Pricing</a>
@@ -1207,15 +1226,6 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Intersection observer for scroll animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(el => {
-    if (el.isIntersecting) {
-      el.target.style.opacity = '1';
-      el.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.language-card, .step, 
+const observer = new IntersectionObserver((entries) =>
