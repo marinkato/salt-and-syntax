@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salt & Syntax — Language Lessons Online</title>
+<title>Salt & Syntax – Language Lessons Online</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -132,6 +132,49 @@
     color: var(--teal);
   }
 
+  @keyframes slideIn {
+    0% { opacity: 0; transform: translateX(-40px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 100% center; }
+  }
+
+  .slide-in {
+    display: inline;
+    animation: slideIn 0.8s ease both;
+  }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, #8DCFAA 0%, #5BBAB3 30%, #2C7873 60%, #1a4f4c 80%, #0d2e2c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-out forwards;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .shimmer-world {
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  .shimmer-about {
+    background: linear-gradient(90deg, #8DCFAA 0%, #5BBAB3 30%, #2C7873 60%, #1a4f4c 80%, #0d2e2c 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-out forwards;
+    font-weight: 600;
+    font-style: italic;
+    display: block;
+  }
+
   .hero-sub {
     font-size: 1.05rem;
     color: var(--ink-soft);
@@ -169,7 +212,7 @@
 
   .btn-ghost:hover { gap: 10px; }
 
-  /* Hero visual — language globe */
+  /* Hero visual – language globe */
   .hero-visual {
     display: flex; justify-content: center; align-items: center;
     position: relative;
@@ -284,9 +327,11 @@
   .language-card {
     border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid rgba(28, 28, 26, 0.08);
+    border: 1px solid rgba(28,28,26,0.08);
     transition: transform 0.3s, box-shadow 0.3s;
   }
+
+  .language-card:last-child { border-right: none; }
 
   .language-card:hover {
     transform: translateY(-4px);
@@ -294,37 +339,38 @@
   }
 
   .lang-card-header {
-    padding: 32px 28px 24px;
+    padding: 20px 16px 12px;
     position: relative;
   }
 
-  .lang-card-header.hr-bg { background: linear-gradient(135deg, #F0F8F7 0%, #EAF4F3 100%); }
-  .lang-card-header.en-bg { background: linear-gradient(135deg, #FDF3E0 0%, #FEF6E8 100%); }
-  .lang-card-header.de-bg { background: linear-gradient(135deg, #FDF0EE 0%, #FCE8E4 100%); }
+  .lang-card-header.hr-bg { background: linear-gradient(90deg, #DCEFD4 0%, #C8EBD8 100%); }
+  .lang-card-header.en-bg { background: linear-gradient(90deg, #C8EBD8 0%, #90CCBE 100%); }
+  .lang-card-header.de-bg { background: linear-gradient(90deg, #90CCBE 0%, #4A9E96 100%); }
 
-  .lang-card-flag { font-size: 2.8rem; margin-bottom: 12px; display: block; }
+  .lang-card-flag { font-size: 16px; flex-shrink: 0; }
+
+  .lang-card-header-top { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
 
   .lang-card-name {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--ink);
-    margin-bottom: 4px;
+    margin-bottom: 0;
   }
 
   .lang-card-tag {
-    font-size: 0.78rem;
+    font-size: 0.68rem;
     font-weight: 500;
     letter-spacing: 0.04em;
-    padding: 4px 10px;
+    padding: 2px 7px;
     border-radius: 20px;
     display: inline-block;
-    margin-top: 8px;
   }
 
-  .tag-teal { background: var(--teal-light); color: var(--teal); }
-  .tag-amber { background: var(--amber-light); color: var(--amber); }
-  .tag-coral { background: rgba(201, 84, 60, 0.1); color: var(--coral); }
+  .tag-teal { background: rgba(44,120,115,0.15); color: #1a4f4c; }
+  .tag-amber { background: rgba(44,120,115,0.15); color: #1a4f4c; }
+  .tag-coral { background: rgba(44,120,115,0.15); color: #1a4f4c; }
 
   .lang-card-body { padding: 24px 28px 28px; background: var(--white); }
 
@@ -774,9 +820,9 @@
     <li><a href="#about">About</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#contact" class="nav-cta">Book a free trial</a></li>
+    <li><a href="https://cal.eu/salt-and-syntax" target="_blank" class="nav-cta">Book a free trial</a></li>
   </ul>
-  <a href="#contact" class="btn-primary" style="display:none;display:inline-block;" id="mobile-cta">Book trial</a>
+  <a href="https://cal.eu/salt-and-syntax" target="_blank" class="btn-primary" style="display:none;display:inline-block;" id="mobile-cta">Book trial</a>
 </nav>
 
 <!-- HERO -->
@@ -784,10 +830,10 @@
   <div class="hero">
     <div class="fade-up">
       <div class="hero-eyebrow">Online lessons · Croatian · English · German</div>
-      <h1>Language isn't<br>a subject — it's your <br><em>way into the world.</em></h1>
+      <h1>Language isn't<br>a subject <span class="slide-in"><span style="opacity: 0.2;">.</span><span style="opacity: 0.45;">.</span><span style="opacity: 0.7;">.</span></span> it's your <br><em class="shimmer-text">way into the <span class="shimmer-world">world.</span></em></h1>
       <p class="hero-sub delay-1"> Some doors only open when you speak the language. Personal 1-on-1 lessons with a tutor who speaks six languages and understands exactly what it feels like to learn one from scratch. For adults and children.</p>
       <div class="hero-actions delay-2">
-        <a href="#contact" class="btn-primary">Book a free trial lesson</a>
+        <a href="https://cal.eu/salt-and-syntax" target="_blank" class="btn-primary">Book a free trial lesson</a>
         <a href="#how" class="btn-ghost">How it works →</a>
       </div>
     </div>
@@ -826,15 +872,15 @@
   </div>
   <div class="trust-item">
     <div class="trust-icon">👩‍👧</div>
-    <span><strong>Adults & kids</strong> — all ages welcome</span>
+    <span><strong>Adults & kids</strong> – all ages welcome</span>
   </div>
   <div class="trust-item">
     <div class="trust-icon">💻</div>
-    <span><strong>100% online</strong> — learn from anywhere</span>
+    <span><strong>100% online</strong> – learn from anywhere</span>
   </div>
   <div class="trust-item">
     <div class="trust-icon">🎯</div>
-    <span><strong>Free trial</strong> — no commitment</span>
+    <span><strong>Free trial</strong> – no commitment</span>
   </div>
 </div>
 
@@ -843,14 +889,16 @@
   <div class="section-inner">
     <div class="section-label">What I teach</div>
     <h2 class="section-title">Three languages,<br>one dedicated tutor</h2>
-    <p class="section-sub">Whether you're a Croatian learning English for work, a child starting German, or a foreigner falling in love with Croatian — this is the right place.</p>
+    <p class="section-sub">Whether you're a Croatian learning English for work, a child starting German, or a foreigner falling in love with Croatian, this is the right place.</p>
 
     <div class="languages-grid">
 
       <div class="language-card">
         <div class="lang-card-header hr-bg">
-          <span class="lang-card-flag">🇭🇷</span>
-          <div class="lang-card-name">Croatian</div>
+          <div class="lang-card-header-top">
+            <span class="lang-card-flag">🇭🇷</span>
+            <div class="lang-card-name">Croatian</div>
+          </div>
           <div class="lang-card-tag tag-teal">Native language</div>
         </div>
         <div class="lang-card-body">
@@ -861,24 +909,28 @@
 
       <div class="language-card">
         <div class="lang-card-header en-bg">
-          <span class="lang-card-flag">🇬🇧</span>
-          <div class="lang-card-name">English</div>
+          <div class="lang-card-header-top">
+            <span class="lang-card-flag">🇬🇧</span>
+            <div class="lang-card-name">English</div>
+          </div>
           <div class="lang-card-tag tag-amber">Fluent speaker</div>
         </div>
         <div class="lang-card-body">
-          <p>English for careers, travel, exams, or everyday life. I know the struggles Croatian speakers face — from false friends to that tricky th sound — and I know how to solve them.</p>
+          <p>English for careers, travel, exams, or everyday life. I know the struggles Croatian speakers face, from false friends to that tricky th sound, and I know how to solve them.</p>
           <div class="lang-who">For: Croatians of all ages, adults & kids</div>
         </div>
       </div>
 
       <div class="language-card">
         <div class="lang-card-header de-bg">
-          <span class="lang-card-flag">🇩🇪</span>
-          <div class="lang-card-name">German</div>
+          <div class="lang-card-header-top">
+            <span class="lang-card-flag">🇩🇪</span>
+            <div class="lang-card-name">German</div>
+          </div>
           <div class="lang-card-tag tag-coral">Fluent speaker</div>
         </div>
         <div class="lang-card-body">
-          <p>German grammar can feel overwhelming — the cases, the word order, the compound nouns. As a fluent speaker who learned it myself, I make it click, step by step.</p>
+          <p>German grammar can feel overwhelming; the cases, the word order, the compound nouns. As a fluent speaker who learned it myself, I make it click, step by step.</p>
           <div class="lang-who">For: Croatians moving to Germany or Austria</div>
         </div>
       </div>
@@ -905,9 +957,9 @@
 
       <div class="about-content">
         <div class="section-label">About your tutor</div>
-        <h2 class="section-title">"Learning a language ist nicht leicht / non è facile / ni lahko.</h2>
-        <p>I'm a Croatian tutor based in Rijeka, and I speak six languages — none of them came easy, especially German. I understand learning from the inside out: the frustration, the shame of making mistakes, the breakthroughs, the patience it takes to get there.</p>
-        <p>I offer warm, structured, and flexible online lessons tailored to you — whether you're a complete beginner, preparing for an exam, moving to a new country, or raising a bilingual child.</p>
+        <h2 class="section-title">Learning a language<span style="opacity: 0.2;">.</span><span style="opacity: 0.45;">.</span><span style="opacity: 0.7;">.</span><br><span class="shimmer-about">ist nicht leicht – non è facile – ni lahko.</span></h2>
+        <p>I'm Marina Toto, a Croatian tutor based in Kastav, a medieval hilltop town near Rijeka, with an MA in Sociology and a passion for language that spans six languages; none of them came easy, especially German 🫠. I draw on TESOL methodology, focused on real communication rather than just grammar rules. Learning from the inside out is something I know well: the frustration, the shame of making mistakes, the breakthroughs, the patience it takes to get there.</p>
+        <p>I offer warm, structured, and flexible online lessons tailored to you; whether you're a complete beginner, preparing for an exam, moving to a new country, or raising a bilingual child.</p>
         <p>Every lesson is 1-on-1. No big groups, no generic lesson plans. Just us, your goals, and a plan that works.</p>
 
         <div class="about-langs">
@@ -933,12 +985,12 @@
       <div class="step">
         <div class="step-num">1</div>
         <h3>Free trial lesson</h3>
-        <p>We meet online, chat about your goals and have a taster lesson — completely free and with no strings attached.</p>
+        <p>We meet online, chat about your goals and have a taster lesson – completely free and with no strings attached.</p>
       </div>
       <div class="step">
         <div class="step-num">2</div>
         <h3>Your personal plan</h3>
-        <p>Based on your level and goals, I put together a learning plan just for you — flexible to fit around your life.</p>
+        <p>Based on your level and goals, I put together a learning plan just for you, flexible to fit around your life.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
@@ -948,7 +1000,7 @@
       <div class="step">
         <div class="step-num">4</div>
         <h3>You start speaking</h3>
-        <p>Real progress you can feel — conversations, confidence, and the satisfaction of truly knowing a language.</p>
+        <p>Real progress you can feel – conversations, confidence, and the satisfaction of truly knowing a language.</p>
       </div>
     </div>
   </div>
@@ -981,7 +1033,7 @@
           <li>Flexible scheduling</li>
           <li>Free first trial</li>
         </ul>
-        <a href="#contact" class="btn-pricing btn-pricing-outline">Get started</a>
+        <a href="https://cal.eu/salt-and-syntax" target="_blank" class="btn-pricing btn-pricing-outline">Get started</a>
       </div>
 
       <div class="price-card featured">
@@ -998,7 +1050,7 @@
           <li>Homework & materials</li>
           <li>Progress tracking</li>
         </ul>
-        <a href="#contact" class="btn-pricing btn-pricing-white">Get started</a>
+        <a href="https://cal.eu/salt-and-syntax" target="_blank" class="btn-pricing btn-pricing-white">Get started</a>
       </div>
 
       <div class="price-card">
@@ -1015,7 +1067,7 @@
           <li>Full materials included</li>
           <li>Best for rapid progress</li>
         </ul>
-        <a href="#contact" class="btn-pricing btn-pricing-outline">Get started</a>
+        <a href="https://cal.eu/salt-and-syntax" target="_blank" class="btn-pricing btn-pricing-outline">Get started</a>
       </div>
 
     </div>
@@ -1023,32 +1075,29 @@
   </div>
 </section>
 
-
-
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="section-inner">
     <div class="section-label">What students say</div>
-    <h2 class="section-title">Real words from real learners</h2>
-    <p class="section-sub">Placeholder testimonials — replace with real student reviews as you collect them.</p>
+    <h2 class="section-title">In their own words</h2>
 
     <div class="testimonials-grid">
 
       <div class="testimonial">
         <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"I'd tried apps and group classes before, but nothing clicked until these 1-on-1 lessons. After two months I was having real conversations in English at work."</p>
+        <p class="testimonial-text">"I'd tried apps and group classes before, but nothing clicked until these 1-on-1 lessons. After two months I had much more confidence when speaking English, and my vocabulary improved noticeably."</p>
         <div class="testimonial-author">
           <div class="author-avatar">MK</div>
           <div>
             <div class="author-name">Maja K.</div>
-            <div class="author-meta">Zagreb · Learning English</div>
+            <div class="author-meta">Zagreb · Improving English</div>
           </div>
         </div>
       </div>
 
       <div class="testimonial">
         <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"My daughter (age 9) looks forward to every lesson. The approach with kids is so natural — she doesn't even realise how much German she's picked up."</p>
+        <p class="testimonial-text">"My daughter (age 9) looks forward to every lesson. The approach with kids is so natural, she doesn't even realise how much German she's picked up."</p>
         <div class="testimonial-author">
           <div class="author-avatar">TB</div>
           <div>
@@ -1060,7 +1109,7 @@
 
       <div class="testimonial">
         <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"I moved to Rijeka from London and desperately needed Croatian. The lessons felt like a chat with a friend — not a textbook. I can now shop, chat with neighbours, get around."</p>
+        <p class="testimonial-text">"I moved to Rijeka from the UK for work and wanted to get familiar with the locals. The lessons felt like a chat with a friend, not a textbook. I'm far from fluent but can now shop, do a small chat with neighbours, get around."</p>
         <div class="testimonial-author">
           <div class="author-avatar">SH</div>
           <div>
@@ -1083,25 +1132,25 @@
 
     <div class="contact-grid">
 
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <form class="contact-form" action="https://formspree.io/f/xnjonjvr" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label>First name</label>
-            <input type="text" placeholder="Ana">
+            <input type="text" name="first-name" placeholder="Ana">
           </div>
           <div class="form-group">
             <label>Last name</label>
-            <input type="text" placeholder="Horvat">
+            <input type="text" name="last-name" placeholder="Horvat">
           </div>
         </div>
         <div class="form-group">
           <label>Email address</label>
-          <input type="email" placeholder="ana@example.com">
+          <input type="email" name="email" placeholder="ana@example.com">
         </div>
         <div class="form-row">
           <div class="form-group">
             <label>Language I want to learn</label>
-            <select>
+            <select name="language">
               <option value="">Select a language</option>
               <option>English</option>
               <option>German</option>
@@ -1110,7 +1159,7 @@
           </div>
           <div class="form-group">
             <label>Lessons are for</label>
-            <select>
+            <select name="lessons-for">
               <option value="">Select</option>
               <option>Me (adult)</option>
               <option>My child</option>
@@ -1120,9 +1169,10 @@
         </div>
         <div class="form-group">
           <label>Anything else? (optional)</label>
-          <textarea placeholder="Your current level, goals, availability..."></textarea>
+          <textarea name="message" placeholder="Your current level, goals, availability..."></textarea>
         </div>
         <button type="submit" class="btn-submit">Send my request →</button>
+        <a href="https://cal.eu/salt-and-syntax" target="_blank" style="color:rgba(255,255,255,0.8); font-size:0.88rem; margin-top:8px; display:inline-block;">Or book directly in my calendar →</a>
       </form>
 
       <div class="contact-info">
@@ -1131,7 +1181,7 @@
         <div class="contact-item">
           <div class="contact-icon">📍</div>
           <div class="contact-item-text">
-            <strong>Based in Rijeka, Croatia</strong>
+            <strong>Based in Kastav, Croatia</strong>
             <span>Teaching students worldwide online</span>
           </div>
         </div>
@@ -1139,7 +1189,7 @@
         <div class="contact-item">
           <div class="contact-icon">📧</div>
           <div class="contact-item-text">
-            <strong>hello@saltandsyntax.com</strong>
+            <strong><!--email_off-->hello@saltandsyntax.com<!--/email_off--></strong>
             <span>I reply within 24 hours</span>
           </div>
         </div>
@@ -1148,7 +1198,7 @@
           <div class="contact-icon">📱</div>
           <div class="contact-item-text">
             <strong>WhatsApp & Viber</strong>
-            <span>Add your number here</span>
+            <span>004915773410010</span>
           </div>
         </div>
 
@@ -1156,7 +1206,7 @@
           <div class="contact-icon">🕐</div>
           <div class="contact-item-text">
             <strong>Flexible scheduling</strong>
-            <span>Morning, afternoon, and evening slots — weekdays and weekends</span>
+            <span>Morning, afternoon, and evening slots – weekdays and weekends</span>
           </div>
         </div>
 
@@ -1175,7 +1225,10 @@
 <!-- FOOTER -->
 <footer>
   <a href="#" class="footer-logo">Salt <span>&</span> Syntax</a>
-  <span>© 2025 Salt & Syntax · Online language lessons · Rijeka, Croatia</span>
+  <div style="text-align:center;">
+    <span style="display:block;">© 2026 Salt & Syntax · Online language lessons · Kastav, Croatia</span>
+    <span style="display:block; font-size:0.78rem; margin-top:4px; opacity:0.6;">Obrt za usluge vl. Marina Toto · Trinajstići 61, 51215 Kastav, Croatia</span>
+  </div>
   <div>
     <a href="#languages">Languages</a>
     <a href="#pricing">Pricing</a>
@@ -1183,33 +1236,6 @@
   </div>
 </footer>
 
-<script>
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit');
-  btn.textContent = '✓ Sent! I\'ll be in touch soon.';
-  btn.style.background = '#EAF4F3';
-  btn.style.color = '#2C7873';
-  btn.disabled = true;
-}
-
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Intersection observer for scroll animations
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(el => {
-    if (el.isIntersecting) {
-      el.target.style.opacity = '1';
-      el.target.style.transform = 'translateY(0)';
-    }
-  });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.language-card, .step, .price-card, .testimonial').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
-});
-</script>
-
-</body>
-</html>
+const observer = new IntersectionObserver((entries) =>
