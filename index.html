@@ -139,6 +139,17 @@
 
   .nav-cta:hover { background: #235f5b !important; transform: translateY(-1px); }
 
+  .lang-switcher {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border: 1px solid rgba(28,28,26,0.15);
+    padding: 5px 12px;
+    border-radius: 40px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .lang-switcher:hover { color: var(--teal); border-color: var(--teal); }
+
   /* ── HERO ── */
   .hero {
     min-height: 92vh;
@@ -875,7 +886,7 @@
     <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="https://cal.eu/salt-and-syntax" target="_blank" class="nav-cta">Book a free trial</a></li>
-    <li><a href="/index-hr.html">Croatian</a></li>
+    <li><a href="/index-hr.html" class="lang-switcher">🇭🇷 Croatian</a></li>
   </ul>
   <a href="https://cal.eu/salt-and-syntax" target="_blank" class="btn-primary" style="display:none;display:inline-block;" id="mobile-cta">Book trial</a>
 </nav>
