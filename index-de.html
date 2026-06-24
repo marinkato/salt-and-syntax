@@ -939,10 +939,10 @@
 
   .faq-list {
     margin-top: 56px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
-    max-width: 780px;
+    align-items: start;
   }
 
   .faq-item {
@@ -1029,6 +1029,7 @@
     .languages-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
     .form-row { grid-template-columns: 1fr; }
+    .faq-list { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
     .steps::before { display: none; }
     .price-card.featured { transform: none; }
