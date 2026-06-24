@@ -96,6 +96,59 @@
           "description": "8 Stunden pro Monat, zweimal wöchentlich"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Warum 1:1-Unterricht statt App oder Gruppensprachkurs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Apps wie Duolingo sind gut für Vokabeln, aber sie können nicht auf deine Fehler eingehen, dein Tempo anpassen oder dir erklären, warum etwas so klingt, wie es klingt. Im Gruppenunterricht wartest du oft auf die anderen. Im 1:1-Unterricht ist deine Lehrerin ausschließlich auf dich fokussiert – dein Niveau, deine Ziele, dein Tempo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie schwer ist Kroatisch für Deutsche?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kroatisch ist für Deutsche einfacher als oft gedacht. Die Aussprache ist regelmäßig – du sprichst es so, wie du es liest. Die Grammatik hat Fälle, ähnlich wie im Deutschen, was dir gegenüber Englischsprachigen einen echten Vorteil gibt. Mit regelmäßigem Unterricht können die meisten Erwachsenen nach 3–6 Monaten einfache Alltagsgespräche führen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie läuft die kostenlose Probestunde ab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Probestunde dauert 30 Minuten und findet online per Video statt. Wir lernen uns kennen, ich frage nach deinen Zielen und deinem aktuellen Niveau, und wir machen eine erste kleine Unterrichtseinheit. Keine Vorbereitung nötig, keine Zahlungsdaten."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Für wen ist dieser Kroatischkurs geeignet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Kurs ist ideal für Deutsche, Österreicher und Schweizer mit Ferienhaus oder Wohnung in Kroatien; für Auswanderer, die nach Kroatien gezogen sind oder einen Umzug planen; für Menschen, deren Partner oder Familie kroatisch spricht; und für alle, die einfach Lust haben, eine neue Sprache zu lernen. Anfänger sind genauso willkommen wie Fortgeschrittene."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange brauche ich, um Kroatisch zu lernen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Für einfache Urlaubsgespräche reichen oft 2–3 Monate wöchentlicher Unterricht. Für fließende Alltagskonversation solltest du 6–12 Monate einplanen. Mit zweimal wöchentlichem Unterricht geht es deutlich schneller. Wichtiger als die Stundenzahl ist die Regelmäßigkeit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich den Unterricht jederzeit pausieren oder absagen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Es gibt keinen Vertrag und keine Mindestlaufzeit. Einzelstunden kannst du bis zu 24 Stunden vorher kostenlos absagen. Beim Monatspaket kannst du jederzeit pausieren oder aufhören – ohne Strafgebühren."
+          }
+        }
+      ]
     }
   ]
 }
@@ -881,6 +934,61 @@
   .contact-item-text strong { display: block; font-weight: 500; color: white; margin-bottom: 2px; }
   .contact-item-text span { font-size: 0.88rem; color: rgba(255,255,255,0.65); }
 
+  /* ── FAQ ── */
+  #faq { background: var(--sand); }
+
+  .faq-list {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 780px;
+  }
+
+  .faq-item {
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 1px solid rgba(28, 28, 26, 0.08);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    padding: 20px 24px;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .faq-question::-webkit-details-marker { display: none; }
+
+  .faq-question::after {
+    content: '+';
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--teal);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  .faq-item[open] .faq-question::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: 0 24px 20px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
   /* ── FOOTER ── */
   footer {
     background: var(--ink);
@@ -939,6 +1047,7 @@
     <li><a href="#about">Über mich</a></li>
     <li><a href="#how">So funktioniert's</a></li>
     <li><a href="#pricing">Preise</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="/" class="lang-switcher">🇬🇧 English</a></li>
     <li><a href="/index-hr.html" class="lang-switcher">🇭🇷 Hrvatski</a></li>
     <li><a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="nav-cta">Kostenloses Probestunde buchen</a></li>
@@ -1239,6 +1348,48 @@
           </div>
         </div>
       </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-label">Häufige Fragen</div>
+    <h2 class="section-title">Alles, was du wissen möchtest</h2>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-question">Warum 1:1-Unterricht statt App oder Gruppensprachkurs?</summary>
+        <div class="faq-answer">Apps wie Duolingo sind gut für Vokabeln, aber sie können nicht auf deine Fehler eingehen, dein Tempo anpassen oder dir erklären, warum etwas so klingt, wie es klingt. Im Gruppenunterricht wartest du oft auf die anderen. Im 1:1-Unterricht ist deine Lehrerin ausschließlich auf dich fokussiert – dein Niveau, deine Ziele, dein Tempo. Du hast jederzeit Zugang zu ihr und kannst zwischen den Stunden Fragen stellen.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Wie schwer ist Kroatisch für Deutsche?</summary>
+        <div class="faq-answer">Kroatisch ist für Deutsche einfacher als oft gedacht. Die Aussprache ist regelmäßig – du sprichst es so, wie du es liest. Die Grammatik hat Fälle, ähnlich wie im Deutschen, was dir gegenüber Englischsprachigen einen echten Vorteil gibt. Mit regelmäßigem Unterricht können die meisten Erwachsenen nach 3–6 Monaten einfache Alltagsgespräche führen.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Wie läuft die kostenlose Probestunde ab?</summary>
+        <div class="faq-answer">Die Probestunde dauert 30 Minuten und findet online per Video statt. Wir lernen uns kennen, ich frage nach deinen Zielen und deinem aktuellen Niveau, und wir machen eine erste kleine Unterrichtseinheit. Keine Vorbereitung nötig, keine Zahlungsdaten. Einfach erscheinen und schauen, ob wir gut zusammenpassen.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Für wen ist dieser Kroatischkurs geeignet?</summary>
+        <div class="faq-answer">Der Kurs ist ideal für Deutsche, Österreicher und Schweizer mit Ferienhaus oder Wohnung in Kroatien, die mit Nachbarn und Einheimischen sprechen möchten; für Auswanderer, die nach Kroatien gezogen sind oder einen Umzug planen; für Menschen, deren Partner oder Familie kroatisch spricht; und für alle, die einfach Lust haben, eine neue Sprache zu lernen. Anfänger sind genauso willkommen wie Fortgeschrittene.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Wie lange brauche ich, um Kroatisch zu lernen?</summary>
+        <div class="faq-answer">Das hängt von deinen Zielen ab. Für einfache Urlaubsgespräche – einkaufen, im Restaurant bestellen, Smalltalk – reichen oft 2–3 Monate wöchentlicher Unterricht. Für fließende Alltagskonversation solltest du 6–12 Monate einplanen. Mit zweimal wöchentlichem Unterricht geht es deutlich schneller. Wichtiger als die Stundenzahl ist die Regelmäßigkeit.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Kann ich den Unterricht jederzeit pausieren oder absagen?</summary>
+        <div class="faq-answer">Ja. Es gibt keinen Vertrag und keine Mindestlaufzeit. Einzelstunden kannst du bis zu 24 Stunden vorher kostenlos absagen. Beim Monatspaket kannst du jederzeit pausieren oder aufhören – ohne Strafgebühren. Der Unterricht soll sich gut anfühlen, nicht wie eine Verpflichtung.</div>
+      </details>
 
     </div>
   </div>
