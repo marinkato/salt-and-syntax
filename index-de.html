@@ -34,27 +34,70 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "EducationalOrganization",
-  "name": "Salt & Syntax",
-  "url": "https://saltandsyntax.me/index-de.html",
-  "description": "Online-Kroatischkurs für Deutsche und Auswanderer – 1:1-Unterricht mit muttersprachlicher Kroatischlehrerin.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kastav",
-    "addressCountry": "HR"
-  },
-  "founder": {
-    "@type": "Person",
-    "name": "Marina Toto",
-    "jobTitle": "Sprachlehrerin",
-    "knowsLanguage": ["Kroatisch", "Englisch", "Deutsch"]
-  },
-  "offers": {
-    "@type": "Offer",
-    "description": "Kroatisch lernen Online – 1:1-Unterricht",
-    "price": "25",
-    "priceCurrency": "EUR"
-  }
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "name": "Salt & Syntax",
+      "url": "https://saltandsyntax.me/index-de.html",
+      "description": "Online-Kroatischkurs für Deutsche und Auswanderer – 1:1-Unterricht mit muttersprachlicher Kroatischlehrerin.",
+      "areaServed": ["DE", "AT", "CH"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kastav",
+        "addressCountry": "HR"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Marina Toto",
+        "jobTitle": "Sprachlehrerin",
+        "knowsLanguage": ["Kroatisch", "Englisch", "Deutsch"]
+      },
+      "offers": {
+        "@type": "Offer",
+        "description": "Kroatisch lernen Online – 1:1-Unterricht",
+        "price": "25",
+        "priceCurrency": "EUR"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Kroatisch lernen Online – 1:1-Unterricht",
+      "serviceType": "Sprachunterricht",
+      "description": "Persönlicher Online-Kroatischkurs für Deutsche, Österreicher und Schweizer. Ideal für Auswanderer, Urlauber mit Ferienhaus in Kroatien und alle, die Kroatisch von Grund auf lernen möchten.",
+      "url": "https://saltandsyntax.me/index-de.html",
+      "areaServed": ["DE", "AT", "CH"],
+      "inLanguage": "de",
+      "provider": {
+        "@type": "Person",
+        "name": "Marina Toto",
+        "jobTitle": "Kroatischlehrerin",
+        "knowsLanguage": ["Kroatisch", "Englisch", "Deutsch"]
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Einzelstunde",
+          "price": "25",
+          "priceCurrency": "EUR",
+          "description": "1:1-Unterrichtsstunde Kroatisch, 60 Minuten"
+        },
+        {
+          "@type": "Offer",
+          "name": "Monatspaket",
+          "price": "80",
+          "priceCurrency": "EUR",
+          "description": "4 Stunden pro Monat, fester wöchentlicher Termin"
+        },
+        {
+          "@type": "Offer",
+          "name": "Intensivpaket",
+          "price": "140",
+          "priceCurrency": "EUR",
+          "description": "8 Stunden pro Monat, zweimal wöchentlich"
+        }
+      ]
+    }
+  ]
 }
 </script>
 
@@ -1056,7 +1099,7 @@
 <section id="how">
   <div class="section-inner">
     <div class="section-label">Der Ablauf</div>
-    <h2 class="section-title">Einfach, persönlich, effektiv</h2>
+    <h2 class="section-title">So läuft dein Kroatischkurs Online ab</h2>
     <p class="section-sub">Der Einstieg ist unkompliziert. Keine aufwändige Anmeldung, kein Druck. Einfach ein Gespräch darüber, wo du stehst und wo du hinmöchtest.</p>
 
     <div class="steps">
