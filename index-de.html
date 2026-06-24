@@ -236,6 +236,13 @@
 
   .nav-cta:hover { background: #235f5b !important; transform: translateY(-1px); }
 
+  .mobile-lang { display: none; }
+  .mobile-lang a {
+    font-size: 1.3rem;
+    text-decoration: none;
+    line-height: 1;
+  }
+
   .lang-switcher {
     font-size: 0.82rem;
     color: var(--ink-soft);
@@ -1036,6 +1043,7 @@
     nav { padding: 0 4vw; }
     .nav-links { display: none; }
     .trust-bar { gap: 24px; }
+    .mobile-lang { display: flex; gap: 8px; align-items: center; }
   }
 </style>
 </head>
@@ -1054,6 +1062,10 @@
     <li><a href="/index-hr.html" class="lang-switcher">🇭🇷 Hrvatski</a></li>
     <li><a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="nav-cta">Kostenloses Probestunde buchen</a></li>
   </ul>
+  <div class="mobile-lang">
+    <a href="/">🇬🇧</a>
+    <a href="/index-hr.html">🇭🇷</a>
+  </div>
   <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-primary" style="display:none;display:inline-block;" id="mobile-cta">Probestunde buchen</a>
 </nav>
 
