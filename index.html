@@ -882,6 +882,77 @@
   .delay-2 { animation-delay: 0.2s; }
   .delay-3 { animation-delay: 0.35s; }
 
+  /* ── FAQ ── */
+  #faq { background: var(--sand); }
+
+  .faq-list {
+    margin-top: 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 760px;
+  }
+
+  .faq-item {
+    background: var(--white);
+    border: 1px solid rgba(28, 28, 26, 0.08);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: left;
+    gap: 16px;
+    transition: background 0.2s;
+  }
+
+  .faq-question:hover { background: var(--sand); }
+  .faq-question[aria-expanded="true"] { background: var(--teal-pale); }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--teal-light);
+    color: var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform 0.3s, background 0.2s;
+  }
+
+  .faq-question[aria-expanded="true"] .faq-icon {
+    transform: rotate(45deg);
+    background: var(--teal);
+    color: white;
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .faq-answer-inner {
+    padding: 0 24px 20px;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; padding-top: 48px; min-height: auto; }
@@ -914,6 +985,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#how">How it works</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="/index-hr.html" class="lang-switcher">🇭🇷 Croatian</a></li>
     <li><a href="/index-de.html" class="lang-switcher">🇩🇪 Deutsch</a></li>
     <li><a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="nav-cta">Book a free trial</a></li>
@@ -1221,6 +1293,99 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-label">Common questions</div>
+    <h2 class="section-title">Frequently asked questions</h2>
+    <p class="section-sub">Everything you might want to know before your first lesson.</p>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do I need any Croatian before I start?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No prior knowledge needed at all. Whether you're a complete beginner or already know a few words, lessons are shaped around exactly where you are. We start from zero if needed — no rush, no pressure.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How difficult is Croatian for English speakers?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Croatian has 7 grammatical cases and complex verb aspects, which can feel daunting at first. But as a native speaker who has learned several foreign languages from scratch myself, I know exactly where English speakers get stuck — and how to make it click, step by step.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How long before I can hold a basic conversation?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Most students can handle everyday interactions — greetings, shopping, asking for directions — within 2 to 3 months of regular weekly lessons. Progress depends on how often you practise between sessions, but small wins come quickly and they add up.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What platform do we use for lessons?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">We use Zoom or Google Meet — whichever works best for you. All you need is a laptop, tablet, or phone with a stable internet connection. No special software or equipment required.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Is the free trial lesson really free?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes, completely. No credit card, no commitment, no strings attached. It's a relaxed 30-minute session to see how we work together, understand your goals, and find out if we're a good fit. If we are, great. If not, no hard feelings.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What if I need to reschedule or cancel a lesson?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Life happens. Just let me know at least 24 hours in advance and we'll find another time that works. I keep scheduling flexible — mornings, afternoons, evenings, weekdays and weekends.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do I need to buy any books or materials?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">No — I prepare everything myself, tailored to your level and goals. There's nothing to buy before your first lesson. Everything you need comes from me.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do you teach children learning Croatian as well as adults?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Yes — I teach all ages. With younger learners I use more games, songs, and visuals to keep things engaging. With adults we can go deeper into grammar and structured learning. The approach changes; the quality doesn't.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
@@ -1334,6 +1499,21 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// Intersection observer for scroll animations
-const observer = new IntersectionObserver((entries) =>
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    document.querySelectorAll('.faq-question').forEach(b => {
+      b.setAttribute('aria-expanded', 'false');
+      b.nextElementSibling.style.maxHeight = null;
+    });
+    if (!expanded) {
+      btn.setAttribute('aria-expanded', 'true');
+      btn.nextElementSibling.style.maxHeight = btn.nextElementSibling.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+</body>
+</html>
