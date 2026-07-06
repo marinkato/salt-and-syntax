@@ -973,14 +973,14 @@
     <li><a href="#faq">FAQ</a></li>
     <li><a href="/index-hr.html" class="lang-switcher">🇭🇷 Croatian</a></li>
     <li><a href="/index-de.html" class="lang-switcher">🇩🇪 Deutsch</a></li>
-    <li><a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="nav-cta">Book a free trial</a></li>
+    <li><a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="nav" class="nav-cta">Book a free trial</a></li>
   </ul>
   <div style="display:flex; align-items:center; gap:12px;">
     <div class="mobile-lang">
       <a href="/index-hr.html">HR</a>
       <a href="/index-de.html">DE</a>
     </div>
-    <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-primary" style="display:none;display:inline-block;" id="mobile-cta">Book trial</a>
+    <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="mobile" class="btn-primary" style="display:none;display:inline-block;" id="mobile-cta">Book trial</a>
   </div>
 </nav>
 
@@ -992,7 +992,7 @@
       <h1>Online Croatian, English & German Lessons<br><span style="font-size: 0.7em; font-weight: 400; opacity: 0.75;">Learning a language is not only a subject,</span><br><em class="shimmer-text">it's your <span class="shimmer-world">way into the world.</span></em></h1>
       <p class="hero-sub delay-1">Personal 1-on-1 lessons with a tutor who speaks six languages and understands exactly what it feels like to learn one from scratch. For adults and children.</p>
       <div class="hero-actions delay-2">
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-primary">Book a free trial lesson</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="hero" class="btn-primary">Book a free trial lesson</a>
         <a href="#how" class="btn-ghost">How it works →</a>
       </div>
     </div>
@@ -1188,7 +1188,7 @@
           <li>Flexible scheduling</li>
           <li>Free first trial</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-pricing btn-pricing-outline">Get started</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-payg" class="btn-pricing btn-pricing-outline">Get started</a>
       </div>
 
       <div class="price-card featured">
@@ -1205,7 +1205,7 @@
           <li>Homework & materials</li>
           <li>Progress tracking</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-pricing btn-pricing-white">Get started</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-monthly" class="btn-pricing btn-pricing-white">Get started</a>
       </div>
 
       <div class="price-card">
@@ -1222,7 +1222,7 @@
           <li>Full materials included</li>
           <li>Best for rapid progress</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-pricing btn-pricing-outline">Get started</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-intensive" class="btn-pricing btn-pricing-outline">Get started</a>
       </div>
 
     </div>
@@ -1395,7 +1395,7 @@
           <textarea name="message" placeholder="Your current level, goals, availability..."></textarea>
         </div>
         <button type="submit" class="btn-submit">Send my request →</button>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" style="color:rgba(255,255,255,0.8); font-size:0.88rem; margin-top:8px; display:inline-block;">Or book directly in my calendar →</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="contact-footer" style="color:rgba(255,255,255,0.8); font-size:0.88rem; margin-top:8px; display:inline-block;">Or book directly in my calendar →</a>
       </form>
 
       <div class="contact-info">
@@ -1459,5 +1459,26 @@
   </div>
 </footer>
 
+<script>
+// GA4 key event tracking: Cal.com booking clicks and contact form submissions
+document.querySelectorAll('a[href*="cal.com"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    gtag('event', 'book_trial_click', {
+      event_category: 'engagement',
+      event_label: link.dataset.cta || 'unknown'
+    });
+  });
+});
+
+document.querySelectorAll('.contact-form').forEach(function (form) {
+  form.addEventListener('submit', function () {
+    gtag('event', 'generate_lead', {
+      event_category: 'engagement',
+      event_label: 'contact_form',
+      transport_type: 'beacon'
+    });
+  });
+});
+</script>
 </body>
 </html>

@@ -1069,14 +1069,14 @@
     <li><a href="#faq">FAQ</a></li>
     <li><a href="/" class="lang-switcher">🇬🇧 English</a></li>
     <li><a href="/index-hr.html" class="lang-switcher">🇭🇷 Hrvatski</a></li>
-    <li><a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="nav-cta">Kostenloses Probestunde buchen</a></li>
+    <li><a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="nav" class="nav-cta">Kostenloses Probestunde buchen</a></li>
   </ul>
   <div style="display:flex; align-items:center; gap:12px;">
     <div class="mobile-lang">
       <a href="/">EN</a>
       <a href="/index-hr.html">HR</a>
     </div>
-    <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-primary" style="display:none;display:inline-block;" id="mobile-cta">Probestunde</a>
+    <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="mobile" class="btn-primary" style="display:none;display:inline-block;" id="mobile-cta">Probestunde</a>
   </div>
 </nav>
 
@@ -1088,7 +1088,7 @@
       <h1>Kroatisch lernen Online<br><span style="font-size: 0.7em; font-weight: 400; opacity: 0.75;">Für Deutsche in Kroatien;</span><br><em class="shimmer-text">ob Ferienhaus, <span class="shimmer-world">Umzug oder Alltag.</span></em></h1>
       <p class="hero-sub delay-1">Persönlicher 1:1-Unterricht mit einer muttersprachlichen Kroatischlehrerin, die selbst weiß, wie es sich anfühlt, eine Sprache von Grund auf zu lernen. Für Erwachsene und Kinder.</p>
       <div class="hero-actions delay-2">
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-primary">Kostenlose Probestunde buchen</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="hero" class="btn-primary">Kostenlose Probestunde buchen</a>
         <a href="#how" class="btn-ghost">So funktioniert's →</a>
       </div>
     </div>
@@ -1284,7 +1284,7 @@
           <li>Flexible Terminplanung</li>
           <li>Erste Probestunde gratis</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-pricing btn-pricing-outline">Jetzt starten</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-payg" class="btn-pricing btn-pricing-outline">Jetzt starten</a>
       </div>
 
       <div class="price-card featured">
@@ -1301,7 +1301,7 @@
           <li>Hausaufgaben & Materialien</li>
           <li>Fortschrittsverfolgung</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-pricing btn-pricing-white">Jetzt starten</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-monthly" class="btn-pricing btn-pricing-white">Jetzt starten</a>
       </div>
 
       <div class="price-card">
@@ -1318,7 +1318,7 @@
           <li>Alle Materialien inklusive</li>
           <li>Ideal für schnelle Fortschritte</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-pricing btn-pricing-outline">Jetzt starten</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-intensive" class="btn-pricing btn-pricing-outline">Jetzt starten</a>
       </div>
 
     </div>
@@ -1465,7 +1465,7 @@
           <textarea name="message" placeholder="Dein aktuelles Niveau, Ziele, Verfügbarkeit..."></textarea>
         </div>
         <button type="submit" class="btn-submit">Anfrage senden →</button>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" style="color:rgba(255,255,255,0.8); font-size:0.88rem; margin-top:8px; display:inline-block;">Oder direkt in meinem Kalender buchen →</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="contact-footer" style="color:rgba(255,255,255,0.8); font-size:0.88rem; margin-top:8px; display:inline-block;">Oder direkt in meinem Kalender buchen →</a>
       </form>
 
       <div class="contact-info">
@@ -1529,6 +1529,45 @@
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Intersection observer for scroll animations
-const observer = new IntersectionObserver((entries) =>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.language-card, .step, .price-card, .testimonial').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(el);
+});
+</script>
+
+<script>
+// GA4 key event tracking: Cal.com booking clicks and contact form submissions
+document.querySelectorAll('a[href*="cal.com"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    gtag('event', 'book_trial_click', {
+      event_category: 'engagement',
+      event_label: link.dataset.cta || 'unknown'
+    });
+  });
+});
+
+document.querySelectorAll('.contact-form').forEach(function (form) {
+  form.addEventListener('submit', function () {
+    gtag('event', 'generate_lead', {
+      event_category: 'engagement',
+      event_label: 'contact_form',
+      transport_type: 'beacon'
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -898,14 +898,14 @@
     <li><a href="#pricing">Cijene</a></li>
     <li><a href="index.html" class="lang-switcher">🇬🇧 English</a></li>
     <li><a href="/index-de.html" class="lang-switcher">🇩🇪 Deutsch</a></li>
-    <li><a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="nav-cta">Rezerviraj besplatni sat</a></li>
+    <li><a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="nav" class="nav-cta">Rezerviraj besplatni sat</a></li>
   </ul>
   <div style="display:flex; align-items:center; gap:12px;">
     <div class="mobile-lang">
       <a href="/">EN</a>
       <a href="/index-de.html">DE</a>
     </div>
-    <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-primary" style="display:inline-block;" id="mobile-cta">Rezerviraj</a>
+    <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="mobile" class="btn-primary" style="display:inline-block;" id="mobile-cta">Rezerviraj</a>
   </div>
 </nav>
 
@@ -917,7 +917,7 @@
       <h1>Online satovi engleskog i njemačkog<span class="slide-in"><span style="opacity: 0.2;">.</span><span style="opacity: 0.45;">.</span><span style="opacity: 0.7;">.</span></span><br>tvoj <em class="shimmer-text">put prema <span class="shimmer-world">svijetu.</span></em></h1>
       <p class="hero-sub delay-1">Neka se vrata otvaraju tek kad govoriš jezik. Osobni 1-na-1 satovi s mentoricom koja govori šest jezika i zna na svojoj koži kako je učiti od nule. Za odrasle i djecu – uključujući instrukcije iz engleskog i njemačkog za školu.</p>
       <div class="hero-actions delay-2">
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-primary">Rezerviraj besplatni sat</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="hero" class="btn-primary">Rezerviraj besplatni sat</a>
         <a href="#how" class="btn-ghost">Kako funkcionira →</a>
       </div>
     </div>
@@ -1114,7 +1114,7 @@
           <li>Fleksibilan raspored</li>
           <li>Besplatni prvi sat</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-pricing btn-pricing-outline">Počni</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-payg" class="btn-pricing btn-pricing-outline">Počni</a>
       </div>
 
       <div class="price-card featured">
@@ -1131,7 +1131,7 @@
           <li>Domaća zadaća i materijali</li>
           <li>Praćenje napretka</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-pricing btn-pricing-white">Počni</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-monthly" class="btn-pricing btn-pricing-white">Počni</a>
       </div>
 
       <div class="price-card">
@@ -1148,7 +1148,7 @@
           <li>Svi materijali uključeni</li>
           <li>Najbrži napredak</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" class="btn-pricing btn-pricing-outline">Počni</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-intensive" class="btn-pricing btn-pricing-outline">Počni</a>
       </div>
 
     </div>
@@ -1253,7 +1253,7 @@
           <textarea name="message" placeholder="Tvoja trenutna razina, ciljevi, dostupnost..."></textarea>
         </div>
         <button type="submit" class="btn-submit">Pošalji upit →</button>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" style="color:rgba(255,255,255,0.8); font-size:0.88rem; margin-top:8px; display:inline-block;">Ili rezerviraj direktno u mom kalendaru →</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="contact-footer" style="color:rgba(255,255,255,0.8); font-size:0.88rem; margin-top:8px; display:inline-block;">Ili rezerviraj direktno u mom kalendaru →</a>
       </form>
 
       <div class="contact-info">
@@ -1335,5 +1335,26 @@ document.querySelectorAll('.language-card, .step, .price-card, .testimonial').fo
 });
 </script>
 
+<script>
+// GA4 key event tracking: Cal.com booking clicks and contact form submissions
+document.querySelectorAll('a[href*="cal.com"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    gtag('event', 'book_trial_click', {
+      event_category: 'engagement',
+      event_label: link.dataset.cta || 'unknown'
+    });
+  });
+});
+
+document.querySelectorAll('.contact-form').forEach(function (form) {
+  form.addEventListener('submit', function () {
+    gtag('event', 'generate_lead', {
+      event_category: 'engagement',
+      event_label: 'contact_form',
+      transport_type: 'beacon'
+    });
+  });
+});
+</script>
 </body>
 </html>
