@@ -887,66 +887,50 @@
 
   .faq-list {
     margin-top: 56px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
-    max-width: 760px;
+    align-items: start;
   }
 
   .faq-item {
     background: var(--white);
-    border: 1px solid rgba(28, 28, 26, 0.08);
     border-radius: var(--radius);
+    border: 1px solid rgba(28, 28, 26, 0.08);
     overflow: hidden;
   }
 
   .faq-question {
-    width: 100%;
-    background: none;
-    border: none;
     padding: 20px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    font-family: var(--font-sans);
+    font-family: var(--font-serif);
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--ink);
-    text-align: left;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 16px;
-    transition: background 0.2s;
   }
 
-  .faq-question:hover { background: var(--sand); }
-  .faq-question[aria-expanded="true"] { background: var(--teal-pale); }
+  .faq-question::-webkit-details-marker { display: none; }
 
-  .faq-icon {
-    flex-shrink: 0;
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    background: var(--teal-light);
-    color: var(--teal);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
+  .faq-question::after {
+    content: '+';
+    font-family: var(--font-sans);
+    font-size: 1.4rem;
     font-weight: 300;
-    line-height: 1;
-    transition: transform 0.3s, background 0.2s;
+    color: var(--teal);
+    flex-shrink: 0;
+    transition: transform 0.2s;
   }
 
-  .faq-question[aria-expanded="true"] .faq-icon {
+  .faq-item[open] .faq-question::after {
     transform: rotate(45deg);
-    background: var(--teal);
-    color: white;
   }
 
   .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.35s ease;
-  }
-
-  .faq-answer-inner {
     padding: 0 24px 20px;
     color: var(--ink-soft);
     font-size: 0.95rem;
@@ -960,6 +944,7 @@
     .languages-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
     .form-row { grid-template-columns: 1fr; }
+    .faq-list { grid-template-columns: 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
     .steps::before { display: none; }
     .price-card.featured { transform: none; }
@@ -1302,105 +1287,60 @@
 
     <div class="faq-list">
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Do I need any Croatian before I start?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">No prior knowledge needed at all. Whether you're a complete beginner or already know a few words, lessons are shaped around exactly where you are. We start from zero if needed — no rush, no pressure.</div>
-        </div>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">Do I need any Croatian before I start?</summary>
+        <div class="faq-answer">No prior knowledge needed at all. Whether you're a complete beginner or already know a few words, lessons are shaped around exactly where you are. We start from zero if needed — no rush, no pressure.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          How difficult is Croatian for English speakers?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Croatian has 7 grammatical cases and complex verb aspects, which can feel daunting at first. But as a native speaker who has learned several foreign languages from scratch myself, I know exactly where English speakers get stuck — and how to make it click, step by step.</div>
-        </div>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">How difficult is Croatian for English speakers?</summary>
+        <div class="faq-answer">Croatian has 7 grammatical cases and complex verb aspects, which can feel daunting at first. But as a native speaker who has learned several foreign languages from scratch myself, I know exactly where English speakers get stuck — and how to make it click, step by step.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          How long before I can hold a basic conversation?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Most students can handle everyday interactions — greetings, shopping, asking for directions — within 2 to 3 months of regular weekly lessons. Progress depends on how often you practise between sessions, but small wins come quickly and they add up.</div>
-        </div>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">How long before I can hold a basic conversation?</summary>
+        <div class="faq-answer">Most students can handle everyday interactions — greetings, shopping, asking for directions — within 2 to 3 months of regular weekly lessons. Progress depends on how often you practise between sessions, but small wins come quickly and they add up.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          What platform do we use for lessons?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">We use Zoom or Google Meet — whichever works best for you. All you need is a laptop, tablet, or phone with a stable internet connection. No special software or equipment required.</div>
-        </div>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">What platform do we use for lessons?</summary>
+        <div class="faq-answer">We use Zoom or Google Meet — whichever works best for you. All you need is a laptop, tablet, or phone with a stable internet connection. No special software or equipment required.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Is the free trial lesson really free?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Yes, completely. No credit card, no commitment, no strings attached. It's a relaxed 30-minute session to see how we work together, understand your goals, and find out if we're a good fit. If we are, great. If not, no hard feelings.</div>
-        </div>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">Is the free trial lesson really free?</summary>
+        <div class="faq-answer">Yes, completely. No credit card, no commitment, no strings attached. It's a relaxed 30-minute session to see how we work together, understand your goals, and find out if we're a good fit. If we are, great. If not, no hard feelings.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          What if I need to reschedule or cancel a lesson?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Life happens. Just let me know at least 24 hours in advance and we'll find another time that works. I keep scheduling flexible — mornings, afternoons, evenings, weekdays and weekends.</div>
-        </div>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">What if I need to reschedule or cancel a lesson?</summary>
+        <div class="faq-answer">Life happens. Just let me know at least 24 hours in advance and we'll find another time that works. I keep scheduling flexible — mornings, afternoons, evenings, weekdays and weekends.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Do I need to buy any books or materials?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">No — I prepare everything myself, tailored to your level and goals. There's nothing to buy before your first lesson. Everything you need comes from me.</div>
-        </div>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">Do I need to buy any books or materials?</summary>
+        <div class="faq-answer">No — I prepare everything myself, tailored to your level and goals. There's nothing to buy before your first lesson. Everything you need comes from me.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Do you teach children learning Croatian as well as adults?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner">Yes — I teach all ages. With younger learners I use more games, songs, and visuals to keep things engaging. With adults we can go deeper into grammar and structured learning. The approach changes; the quality doesn't.</div>
-        </div>
-      </div>
+      <details class="faq-item">
+        <summary class="faq-question">Do you teach children learning Croatian as well as adults?</summary>
+        <div class="faq-answer">Yes — I teach all ages. With younger learners I use more games, songs, and visuals to keep things engaging. With adults we can go deeper into grammar and structured learning. The approach changes; the quality doesn't.</div>
+      </details>
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Any practical tips before I start learning Croatian?
-          <span class="faq-icon">+</span>
-        </button>
+      <details class="faq-item">
+        <summary class="faq-question">Any practical tips before I start learning Croatian?</summary>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
-            <ul style="list-style:none; display:flex; flex-direction:column; gap:10px;">
-              <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Keep your expectations realistic.</strong> Fluency is a long road, and that's okay. What most people actually need — reading signs, chatting with neighbours, getting around — is very much within reach.</span></li>
-              <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>English habits won't always transfer.</strong> Croatian leaves out a lot of words English considers essential, and vice versa. The sooner you stop translating in your head, the faster you'll progress.</span></li>
-              <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Grammar is a big part of the journey.</strong> Croatian grammar is genuinely complex — but it's learnable. We work through it gradually, not all at once.</span></li>
-              <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Other European languages give you a head start.</strong> German, Spanish, and French all share more structural DNA with Croatian than English does. If you speak any of them, you'll notice it quickly.</span></li>
-              <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Give yourself time.</strong> Learning a language is a years-long process — I know this firsthand. It took me the better part of two decades to feel truly comfortable in English. Progress is real even when it feels slow.</span></li>
-              <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Surround yourself with the sounds.</strong> Croatian music is a great low-pressure way to train your ear. You won't understand much at first — that's fine. The Easy Croatian site has songs worth exploring.</span></li>
-              <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Native speakers make surprisingly unhelpful teachers.</strong> Ask a Croatian why something is said a certain way and you'll often get "that's just how it is." They've never had to think about it. That's exactly why working with someone trained to teach makes a difference.</span></li>
-            </ul>
-          </div>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:10px;">
+            <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Keep your expectations realistic.</strong> Fluency is a long road, and that's okay. What most people actually need — reading signs, chatting with neighbours, getting around — is very much within reach.</span></li>
+            <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>English habits won't always transfer.</strong> Croatian leaves out a lot of words English considers essential, and vice versa. The sooner you stop translating in your head, the faster you'll progress.</span></li>
+            <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Grammar is a big part of the journey.</strong> Croatian grammar is genuinely complex — but it's learnable. We work through it gradually, not all at once.</span></li>
+            <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Other European languages give you a head start.</strong> German, Spanish, and French all share more structural DNA with Croatian than English does. If you speak any of them, you'll notice it quickly.</span></li>
+            <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Give yourself time.</strong> Learning a language is a years-long process — I know this firsthand. It took me the better part of two decades to feel truly comfortable in English. Progress is real even when it feels slow.</span></li>
+            <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Surround yourself with the sounds.</strong> Croatian music is a great low-pressure way to train your ear. You won't understand much at first — that's fine. The Easy Croatian site has songs worth exploring.</span></li>
+            <li style="display:flex; gap:10px;"><span style="color:var(--teal); font-weight:700; flex-shrink:0;">→</span><span><strong>Native speakers make surprisingly unhelpful teachers.</strong> Ask a Croatian why something is said a certain way and you'll often get "that's just how it is." They've never had to think about it. That's exactly why working with someone trained to teach makes a difference.</span></li>
+          </ul>
         </div>
-      </div>
+      </details>
 
     </div>
   </div>
@@ -1519,21 +1459,5 @@
   </div>
 </footer>
 
-<script>
-// FAQ accordion
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    document.querySelectorAll('.faq-question').forEach(b => {
-      b.setAttribute('aria-expanded', 'false');
-      b.nextElementSibling.style.maxHeight = null;
-    });
-    if (!expanded) {
-      btn.setAttribute('aria-expanded', 'true');
-      btn.nextElementSibling.style.maxHeight = btn.nextElementSibling.scrollHeight + 'px';
-    }
-  });
-});
-</script>
 </body>
 </html>
