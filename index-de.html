@@ -942,6 +942,16 @@
   .contact-item-text strong { display: block; font-weight: 500; color: white; margin-bottom: 2px; }
   .contact-item-text span { font-size: 0.88rem; color: rgba(255,255,255,0.65); }
 
+  /* ── RATGEBER ── */
+  #ratgeber { background: var(--sand); padding-bottom: 0; }
+  .guide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 40px; }
+  .guide-card { display: block; background: var(--white); border: 1px solid rgba(28,28,26,0.08); border-radius: var(--radius-lg); padding: 28px; text-decoration: none; color: inherit; transition: transform 0.3s, box-shadow 0.3s; }
+  .guide-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(28,28,26,0.1); }
+  .guide-tag { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal); margin-bottom: 10px; }
+  .guide-card h3 { font-family: var(--font-serif); font-size: 1.2rem; line-height: 1.35; color: var(--ink); margin-bottom: 10px; }
+  .guide-card p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.7; margin-bottom: 16px; }
+  .guide-more { color: var(--teal); font-weight: 500; font-size: 0.9rem; }
+
   /* ── FAQ ── */
   #faq { background: var(--sand); }
 
@@ -1424,6 +1434,23 @@
   </div>
 </section>
 
+<!-- RATGEBER -->
+<section id="ratgeber">
+  <div class="section-inner">
+    <div class="section-label">Ratgeber</div>
+    <h2 class="section-title">Tipps zum Kroatisch lernen</h2>
+
+    <div class="guide-grid">
+      <a href="/kroatisch-duolingo.html" class="guide-card">
+        <div class="guide-tag">Apps &amp; Lernwege</div>
+        <h3>Kroatisch mit Duolingo? Was es gibt – und was wirklich hilft</h3>
+        <p>Duolingo bietet kein Kroatisch an. Welche Apps es gibt, wo sie an Grenzen stoßen und welchen Vorsprung du als Deutschsprachige/r hast.</p>
+        <span class="guide-more">Weiterlesen →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section id="faq">
   <div class="section-inner">
@@ -1581,6 +1608,7 @@
     <a href="#languages">Sprachen</a>
     <a href="#pricing">Preise</a>
     <a href="#contact">Kontakt</a>
+    <a href="#ratgeber">Ratgeber</a>
     <a href="/privacy-de.html">Datenschutz</a>
     <a href="#" data-cookie-settings>Cookies</a>
   </div>
