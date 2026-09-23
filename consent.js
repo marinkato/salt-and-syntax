@@ -64,7 +64,7 @@
     'border:1.5px solid #2C7873}' +
     '.ss-consent .ss-accept{background:#2C7873;color:#fff}' +
     '.ss-consent .ss-decline{background:#fff;color:#2C7873}' +
-    '@media (max-width:900px){.ss-consent{bottom:80px}}' +
+    '@media (max-width:900px){.ss-has-bar .ss-consent{bottom:80px}}' +
     '@media (max-width:600px){.ss-consent{flex-direction:column;align-items:stretch;gap:12px}' +
     '.ss-consent-actions button{flex:1}}';
   document.head.appendChild(style);
@@ -102,6 +102,7 @@
   }
 
   function init() {
+    if (document.querySelector('.sticky-mobile-bar')) document.documentElement.classList.add('ss-has-bar');
     var choice = getChoice();
     if (choice === 'granted') loadAnalytics();
     else if (choice !== 'denied') openBanner();
