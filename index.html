@@ -940,7 +940,7 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; padding-top: 48px; min-height: auto; }
-    .hero-visual { height: 300px; }
+    .hero-visual { display: none; }
     .languages-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
     .form-row { grid-template-columns: 1fr; }
@@ -987,6 +987,9 @@
     padding: 12px 20px;
     font-size: 0.9rem;
   }
+  @media (max-width: 900px) {
+    .sticky-mobile-bar { display: flex; }
+  }
 </style>
 </head>
 <body>
@@ -1017,9 +1020,9 @@
 <section style="padding: 0;">
   <div class="hero">
     <div class="fade-up">
-      <div class="hero-eyebrow">Online lessons · Croatian · English · German</div>
-      <h1><span style="font-size: 1.1em;">Online Croatian, English & German Lessons</span><br><span style="font-weight: 400; font-size: 0.9em;">Learning a language is more than words and grammar...</span><br><em class="shimmer-text" style="font-size: 1.1em;">it's your way into <span class="shimmer-world">the&nbsp;world.</span></em></h1>
-      <p class="hero-sub delay-1">Personal 1-on-1 lessons with a tutor who speaks six languages and understands exactly what it feels like to learn one from scratch. For adults and children.</p>
+      <div class="hero-eyebrow">Croatian for expats · 1-on-1 online lessons</div>
+      <h1><span style="font-size: 1.1em;">Learn Croatian for real life in Croatia</span><br><span style="font-weight: 400; font-size: 0.9em;">The lease, the neighbours, the paperwork...</span><br><em class="shimmer-text" style="font-size: 1.1em;">and finally feeling <span class="shimmer-world">at&nbsp;home.</span></em></h1>
+      <p class="hero-sub delay-1">1-on-1 online lessons with a native Croatian tutor who spent 8 years building a career in Berlin, in German and English. I know what it's like to live in a language that isn't yours, so we focus on what you actually need. I also teach English and German, to adults and kids.</p>
       <div class="hero-actions delay-2">
         <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="hero" class="btn-primary">Book a free trial lesson</a>
         <a href="#how" class="btn-ghost">How it works →</a>
@@ -1078,7 +1081,7 @@
   <div class="section-inner">
     <div class="section-label">What I teach</div>
     <h2 class="section-title">Three languages,<br>one dedicated tutor</h2>
-    <p class="section-sub">Whether you're a Croatian learning English for work, a child starting German, or a foreigner falling in love with Croatian, this is the right place.</p>
+    <p class="section-sub">Most of my students are expats and newcomers learning Croatian, whether you moved here for work, for love, or for the sea. I also teach English and German to learners of all ages.</p>
 
     <div class="languages-grid">
 
@@ -1105,8 +1108,8 @@
           <div class="lang-card-tag tag-amber">Fluent speaker</div>
         </div>
         <div class="lang-card-body">
-          <p>English for careers, travel, exams, or everyday life. I know the struggles Croatian speakers face, from false friends to that tricky th sound, and I know how to solve them.</p>
-          <div class="lang-who">For: Croatians of all ages, adults & kids</div>
+          <p>English for careers, travel, exams, or everyday life. After a whole career of working in English with international teams and clients, I teach the English people actually use, from small talk to meetings.</p>
+          <div class="lang-who">For: adults & kids, all levels</div>
         </div>
       </div>
 
@@ -1119,8 +1122,8 @@
           <div class="lang-card-tag tag-coral">Fluent speaker</div>
         </div>
         <div class="lang-card-body">
-          <p>German grammar can feel overwhelming; the cases, the word order, the compound nouns. As a fluent speaker who learned it myself, I make it click, step by step.</p>
-          <div class="lang-who">For: Croatians moving to Germany or Austria</div>
+          <p>German grammar can feel overwhelming; the cases, the word order, the compound nouns. I learned it as an adult and lived and worked in it for 8 years in Berlin, so I know how to make it click, step by step.</p>
+          <div class="lang-who">For: anyone moving to Germany or Austria</div>
         </div>
       </div>
 
@@ -1218,14 +1221,14 @@
           <li>Flexible scheduling</li>
           <li>Free first trial</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-payg" class="btn-pricing btn-pricing-outline">Get started</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-payg" class="btn-pricing btn-pricing-outline">Start with a free trial</a>
       </div>
 
       <div class="price-card featured">
         <div class="price-label">Most popular</div>
         <div class="price-name">Monthly pack</div>
         <div class="price-amount">€80</div>
-        <div class="price-period">per month · 4 lessons</div>
+        <div class="price-period">per month · 4 lessons (€20 each)</div>
         <div class="price-divider"></div>
         <ul class="price-features">
           <li>4 lessons per month</li>
@@ -1234,14 +1237,14 @@
           <li>Homework & materials</li>
           <li>Progress tracking</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-monthly" class="btn-pricing btn-pricing-white">Get started</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-monthly" class="btn-pricing btn-pricing-white">Start with a free trial</a>
       </div>
 
       <div class="price-card">
         <div class="price-label">Intensive</div>
         <div class="price-name">Twice a week</div>
         <div class="price-amount">€140</div>
-        <div class="price-period">per month · 8 lessons</div>
+        <div class="price-period">per month · 8 lessons (€17.50 each)</div>
         <div class="price-divider"></div>
         <ul class="price-features">
           <li>8 lessons per month</li>
@@ -1250,7 +1253,7 @@
           <li>Full materials included</li>
           <li>Best for rapid progress</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-intensive" class="btn-pricing btn-pricing-outline">Get started</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-intensive" class="btn-pricing btn-pricing-outline">Start with a free trial</a>
       </div>
 
     </div>
@@ -1266,6 +1269,17 @@
     <h2 class="section-title">In their own words</h2>
 
     <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"I moved to Rijeka from the UK for work and wanted to get familiar with the locals. The lessons felt like a chat with a friend, not a textbook. I'm far from fluent but can now shop, do a small chat with neighbours, get around."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SH</div>
+          <div>
+            <div class="author-name">Sophie H.</div>
+            <div class="author-meta">London → Rijeka · Learning Croatian</div>
+          </div>
+        </div>
+      </div>
 
       <div class="testimonial">
         <div class="testimonial-stars">★★★★★</div>
@@ -1287,18 +1301,6 @@
           <div>
             <div class="author-name">Tomislav B.</div>
             <div class="author-meta">Split · His daughter learning German</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"I moved to Rijeka from the UK for work and wanted to get familiar with the locals. The lessons felt like a chat with a friend, not a textbook. I'm far from fluent but can now shop, do a small chat with neighbours, get around."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">SH</div>
-          <div>
-            <div class="author-name">Sophie H.</div>
-            <div class="author-meta">London → Rijeka · Learning Croatian</div>
           </div>
         </div>
       </div>
@@ -1409,7 +1411,7 @@
         </div>
         <div class="form-group">
           <label>Email address</label>
-          <input type="email" name="email" placeholder="ana@example.com">
+          <input type="email" name="email" placeholder="ana@example.com" required>
         </div>
         <div class="form-row">
           <div class="form-group">

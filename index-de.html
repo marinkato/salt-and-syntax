@@ -1036,7 +1036,7 @@
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .hero { grid-template-columns: 1fr; padding-top: 48px; min-height: auto; }
-    .hero-visual { height: 300px; }
+    .hero-visual { display: none; }
     .languages-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
     .form-row { grid-template-columns: 1fr; }
@@ -1082,6 +1082,9 @@
     text-align: center;
     padding: 12px 20px;
     font-size: 0.9rem;
+  }
+  @media (max-width: 900px) {
+    .sticky-mobile-bar { display: flex; }
   }
 </style>
 </head>
@@ -1314,14 +1317,14 @@
           <li>Flexible Terminplanung</li>
           <li>Erste Probestunde gratis</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-payg" class="btn-pricing btn-pricing-outline">Jetzt starten</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-payg" class="btn-pricing btn-pricing-outline">Mit Probestunde starten</a>
       </div>
 
       <div class="price-card featured">
         <div class="price-label">Am beliebtesten</div>
         <div class="price-name">Monatspaket</div>
         <div class="price-amount">€80</div>
-        <div class="price-period">pro Monat · 4 Stunden</div>
+        <div class="price-period">pro Monat · 4 Stunden (je 20 €)</div>
         <div class="price-divider"></div>
         <ul class="price-features">
           <li>4 Stunden pro Monat</li>
@@ -1330,14 +1333,14 @@
           <li>Hausaufgaben & Materialien</li>
           <li>Fortschrittsverfolgung</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-monthly" class="btn-pricing btn-pricing-white">Jetzt starten</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-monthly" class="btn-pricing btn-pricing-white">Mit Probestunde starten</a>
       </div>
 
       <div class="price-card">
         <div class="price-label">Intensiv</div>
         <div class="price-name">Zweimal pro Woche</div>
         <div class="price-amount">€140</div>
-        <div class="price-period">pro Monat · 8 Stunden</div>
+        <div class="price-period">pro Monat · 8 Stunden (je 17,50 €)</div>
         <div class="price-divider"></div>
         <ul class="price-features">
           <li>8 Stunden pro Monat</li>
@@ -1346,7 +1349,7 @@
           <li>Alle Materialien inklusive</li>
           <li>Ideal für schnelle Fortschritte</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-intensive" class="btn-pricing btn-pricing-outline">Jetzt starten</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-intensive" class="btn-pricing btn-pricing-outline">Mit Probestunde starten</a>
       </div>
 
     </div>
@@ -1362,6 +1365,17 @@
     <h2 class="section-title">In ihren eigenen Worten</h2>
 
     <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Ich bin aus England nach Rijeka gezogen und wollte mit den Einheimischen in Kontakt kommen. Die Stunden fühlten sich an wie ein Gespräch mit einer Freundin, nicht wie ein Lehrbuch. Ich kann jetzt einkaufen, Smalltalk machen und mich zurechtfinden."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SH</div>
+          <div>
+            <div class="author-name">Sophie H.</div>
+            <div class="author-meta">London → Rijeka · Kroatisch lernen</div>
+          </div>
+        </div>
+      </div>
 
       <div class="testimonial">
         <div class="testimonial-stars">★★★★★</div>
@@ -1383,18 +1397,6 @@
           <div>
             <div class="author-name">Tomislav B.</div>
             <div class="author-meta">Split · Tochter lernt Deutsch</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Ich bin aus England nach Rijeka gezogen und wollte mit den Einheimischen in Kontakt kommen. Die Stunden fühlten sich an wie ein Gespräch mit einer Freundin, nicht wie ein Lehrbuch. Ich kann jetzt einkaufen, Smalltalk machen und mich zurechtfinden."</p>
-        <div class="testimonial-author">
-          <div class="author-avatar">SH</div>
-          <div>
-            <div class="author-name">Sophie H.</div>
-            <div class="author-meta">London → Rijeka · Kroatisch lernen</div>
           </div>
         </div>
       </div>
@@ -1479,7 +1481,7 @@
         </div>
         <div class="form-group">
           <label>E-Mail-Adresse</label>
-          <input type="email" name="email" placeholder="anna@beispiel.de">
+          <input type="email" name="email" placeholder="anna@beispiel.de" required>
         </div>
         <div class="form-row">
           <div class="form-group">

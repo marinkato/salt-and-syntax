@@ -864,10 +864,65 @@
     .delay-2 { animation-delay: 0.2s; }
     .delay-3 { animation-delay: 0.35s; }
 
+    /* ── FAQ ── */
+    #faq { background: var(--sand); }
+
+    .faq-list {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid rgba(28, 28, 26, 0.08);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .faq-question::-webkit-details-marker { display: none; }
+
+    .faq-question::after {
+      content: '+';
+      font-family: var(--font-sans);
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--teal);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .faq-item[open] .faq-question::after {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      padding: 0 24px 20px;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding-top: 48px; min-height: auto; }
-      .hero-visual { height: 300px; }
+      .hero-visual { display: none; }
       .languages-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
       .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
       .steps { grid-template-columns: 1fr 1fr; }
@@ -883,6 +938,7 @@
       .about-photo-placeholder { width: 100%; }
       .about-badge { right: 0; bottom: -12px; }
       .form-row { grid-template-columns: 1fr; }
+      .faq-list { grid-template-columns: 1fr; }
       body { padding-bottom: 72px; }
       .sticky-mobile-bar { display: flex; }
     }
@@ -913,6 +969,9 @@
       padding: 12px 20px;
       font-size: 0.9rem;
     }
+    @media (max-width: 900px) {
+      .sticky-mobile-bar { display: flex; }
+    }
   </style>
 </head>
 <body>
@@ -925,6 +984,7 @@
     <li><a href="#about">O meni</a></li>
     <li><a href="#how">Kako funkcionira</a></li>
     <li><a href="#pricing">Cijene</a></li>
+    <li><a href="#faq">Pitanja</a></li>
     <li><a href="index.html" class="lang-switcher">🇬🇧 English</a></li>
     <li><a href="/index-de.html" class="lang-switcher">🇩🇪 Deutsch</a></li>
     <li><a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="nav" class="nav-cta">Rezerviraj besplatni sat</a></li>
@@ -1144,14 +1204,14 @@
           <li>Fleksibilan raspored</li>
           <li>Besplatni prvi sat</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-payg" class="btn-pricing btn-pricing-outline">Počni</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-payg" class="btn-pricing btn-pricing-outline">Počni besplatnim satom</a>
       </div>
 
       <div class="price-card featured">
         <div class="price-label">Najpopularnije</div>
         <div class="price-name">Mjesečni paket</div>
         <div class="price-amount">€80</div>
-        <div class="price-period">mjesečno · 4 sata</div>
+        <div class="price-period">mjesečno · 4 sata (€20 po satu)</div>
         <div class="price-divider"></div>
         <ul class="price-features">
           <li>4 sata mjesečno</li>
@@ -1160,14 +1220,14 @@
           <li>Domaća zadaća i materijali</li>
           <li>Praćenje napretka</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-monthly" class="btn-pricing btn-pricing-white">Počni</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-monthly" class="btn-pricing btn-pricing-white">Počni besplatnim satom</a>
       </div>
 
       <div class="price-card">
         <div class="price-label">Intenzivno</div>
         <div class="price-name">Dva puta tjedno</div>
         <div class="price-amount">€140</div>
-        <div class="price-period">mjesečno · 8 sati</div>
+        <div class="price-period">mjesečno · 8 sati (€17,50 po satu)</div>
         <div class="price-divider"></div>
         <ul class="price-features">
           <li>8 sati mjesečno</li>
@@ -1176,7 +1236,7 @@
           <li>Svi materijali uključeni</li>
           <li>Najbrži napredak</li>
         </ul>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-intensive" class="btn-pricing btn-pricing-outline">Počni</a>
+        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="pricing-intensive" class="btn-pricing btn-pricing-outline">Počni besplatnim satom</a>
       </div>
 
     </div>
@@ -1239,6 +1299,48 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <div class="section-label">Česta pitanja</div>
+    <h2 class="section-title">Sve što te zanima prije prvog sata</h2>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-question">Trebam li znati išta engleskog ili njemačkog prije početka?</summary>
+        <div class="faq-answer">Ne. Bilo da krećeš od nule ili već znaš dosta, satove prilagođavam točno tvojoj razini. Na probnom satu zajedno vidimo gdje si i odakle krećemo.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Kako izgleda besplatni probni sat?</summary>
+        <div class="faq-answer">Traje 30 minuta i potpuno je besplatan, bez kartice i bez obveze. Razgovaramo o tvojim ciljevima, prođemo kratki dio sata i vidiš odgovara li ti moj pristup. Ako odgovara, super. Ako ne, bez ljutnje.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Radite li s djecom i školskim gradivom?</summary>
+        <div class="faq-answer">Da. S djecom radim kroz igru, razgovor i vizualne materijale, a po potrebi pratimo i školsko gradivo, pripremamo testove i ispite. Za mlađe učenike preporučujem satove od 45 minuta.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Koju platformu koristimo za satove?</summary>
+        <div class="faq-answer">Zoom ili Google Meet, što ti je draže. Treba ti samo laptop, tablet ili mobitel sa stabilnom internetskom vezom.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Što ako moram otkazati ili pomaknuti sat?</summary>
+        <div class="faq-answer">Javi mi barem 24 sata ranije i nađemo novi termin. Termini su fleksibilni: ujutro, poslijepodne i navečer, radnim danima i vikendom.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">Trebam li kupiti udžbenike ili materijale?</summary>
+        <div class="faq-answer">Ne. Sve materijale pripremam ja, prilagođene tvojoj razini i ciljevima. Prije prvog sata ne trebaš ništa kupiti.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
@@ -1267,7 +1369,7 @@
         </div>
         <div class="form-group">
           <label>E-mail adresa</label>
-          <input type="email" name="email" placeholder="ana@primjer.com">
+          <input type="email" name="email" placeholder="ana@primjer.com" required>
         </div>
         <div class="form-row">
           <div class="form-group">
