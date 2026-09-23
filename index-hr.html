@@ -883,6 +883,35 @@
       .about-photo-placeholder { width: 100%; }
       .about-badge { right: 0; bottom: -12px; }
       .form-row { grid-template-columns: 1fr; }
+      body { padding-bottom: 72px; }
+      .sticky-mobile-bar { display: flex; }
+    }
+    .sticky-mobile-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      background: var(--white);
+      border-top: 1px solid rgba(28,28,26,0.1);
+      box-shadow: 0 -4px 20px rgba(28,28,26,0.1);
+      padding: 10px 16px;
+      gap: 10px;
+      align-items: center;
+    }
+    .sticky-mobile-bar .wa-btn {
+      flex: 0 0 auto;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: var(--teal-light);
+      color: var(--teal);
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    .sticky-mobile-bar .btn-primary {
+      flex: 1;
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
@@ -920,6 +949,7 @@
         <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="hero" class="btn-primary">Rezerviraj besplatni sat</a>
         <a href="#how" class="btn-ghost">Kako funkcionira →</a>
       </div>
+      <p style="font-size:0.82rem; color:var(--ink-soft); margin-top:14px; display:flex; align-items:center; gap:6px;"><span style="color:var(--teal);">✓</span> Bez kartice · Bez obveze · Samo 30 minuta</p>
     </div>
 
     <div class="hero-visual fade-up delay-3">
@@ -1038,9 +1068,10 @@
       <div class="about-content">
         <div class="section-label">O tvojoj učiteljici</div>
         <h2 class="section-title">Učenje jezika<span style="opacity: 0.2;">.</span><span style="opacity: 0.45;">.</span><span style="opacity: 0.7;">.</span><br><span class="shimmer-about">nije lako – und das weiß ich gut.</span></h2>
-        <p>Iz Kastva, srednjovjekovnog gradića kraj Rijeke, predajem jezike s jednom velikom prednošću — sama sam prošla kroz sve to. Zovem se Marina Toto, mentorica s diplomom iz sociologije i strašću prema jezicima koja obuhvaća šest jezika – nijedan nije pao s neba, posebno njemački 🫠. Koristim TESOL metodologiju, s fokusom na pravu komunikaciju, a ne samo na gramatiku. Sve sam to sama prošla – frustraciju, sram od pogrešaka, trenutke kad nešto napokon klikne i strpljenje koje cijeli taj put zahtijeva.</p>
-        <p>Nudim tople, strukturirane i fleksibilne online satove prilagođene tebi – bio ti potpuni početnik, pripremaš se za ispit, seliš u novu zemlju ili odgajaš dvojezično dijete.</p>
-        <p>Svaki sat je 1-na-1. Nema velikih grupa, nema generičkih planova. Samo mi dvoje, tvoji ciljevi i pristup koji stvarno funkcionira.</p>
+        <p>Zovem se Marina Toto, mentorica za engleski i njemački iz Kastva, srednjovjekovnog gradića kraj Rijeke, s diplomom iz sociologije. Uz podučavanje, imam 15 godina iskustva u projektnom menadžmentu. Od toga sam 8 godina u Berlinu radila u tehničkom projektnom menadžmentu, na engleskom i njemačkom, na posebno prilagođenim rješenjima za korporativne klijente. Znam kako je graditi karijeru i život na jeziku koji ti nije materinji — ne samo naručiti kavu na njemu.</p>
+        <p>Tako pristupam i podučavanju: manje vremena na gramatiku koju nikad nećeš koristiti, više na ono što stvarno znači u svakodnevici — pročitati ugovor o najmu, usputni razgovor sa susjedima, snaći se na poslovnom sastanku, odgajati dvojezično dijete. Koristim TESOL metodologiju, ali stvarni plan nastave dolazi iz toga što sam sve to sama proživjela: frustraciju, pogreške, spore proboje.</p>
+        <p>Govorim šest jezika — hrvatski (materinji), engleski (C2), njemački (C1, telc certifikat) i još tri koje sam pokupila usput. Većinu sam naučila kao odrasla osoba, uglavnom sama. Nijedan mi nije pao s neba, posebno njemački 🫠.</p>
+        <p>Bio ti potpuni početnik, pripremaš se za ispit, seliš u novu zemlju ili odgajaš dvojezično dijete — svaki sat je 1-na-1, nema velikih grupa, nema generičkih planova. Samo nas dvoje, tvoji ciljevi i pristup koji stvarno funkcionira.</p>
 
         <div class="about-langs">
           <div class="lang-pill">🇭🇷 Hrvatski</div>
@@ -1149,7 +1180,8 @@
       </div>
 
     </div>
-    <p style="text-align:center;margin-top:28px;font-size:0.85rem;color:var(--ink-soft);">Ako ništa od ovoga ne odgovara, slobodno me kontaktiraj – uvijek možemo pronaći nešto što ti odgovara.</p>
+    <p style="text-align:center;margin-top:24px;font-size:0.85rem;color:var(--teal);font-weight:500;">✓ Svaki paket počinje besplatnim probnim satom od 30 minuta — bez kartice, bez obveze</p>
+    <p style="text-align:center;margin-top:8px;font-size:0.85rem;color:var(--ink-soft);">Ako ništa od ovoga ne odgovara, slobodno me kontaktiraj – uvijek možemo pronaći nešto što ti odgovara.</p>
   </div>
 </section>
 
@@ -1198,6 +1230,12 @@
       </div>
 
     </div>
+
+    <div style="margin-top:56px; text-align:center; background:var(--teal-light); border-radius:var(--radius-lg); padding:44px 32px;">
+      <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--ink); margin-bottom:10px;">Spreman/na da sam to i sam/a iskusiš?</h3>
+      <p style="color:var(--ink-soft); max-width:440px; margin:0 auto 24px;">Besplatni probni sat od 30 minuta najlakši je način da to saznaš. Bez kartice, bez pritiska — samo pravi razgovor.</p>
+      <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="testimonials" class="btn-primary">Rezerviraj besplatni sat</a>
+    </div>
   </div>
 </section>
 
@@ -1206,11 +1244,17 @@
   <div class="section-inner">
     <div class="section-label">Kontakt</div>
     <h2 class="section-title">Rezerviraj besplatni probni sat</h2>
-    <p class="section-sub">Ispuni obrazac i javit ću ti se u roku od 24 sata kako bismo dogovorili prvi sat. Bez obveze, bez pritiska.</p>
+    <p class="section-sub">Odaberi termin koji ti odgovara — besplatno, bez kartice, bez pritiska. Imaš pitanje prije rezervacije? Piši mi direktno ili koristi obrazac ispod.</p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; margin-bottom:56px;">
+      <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="contact-primary" class="btn-pricing btn-pricing-white" style="display:inline-block; padding:14px 32px; font-size:0.98rem;">Rezerviraj besplatni sat →</a>
+      <a href="https://wa.me/4915773410010" target="_blank" data-cta="whatsapp" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:40px; border:1.5px solid rgba(255,255,255,0.5); color:white; text-decoration:none; font-weight:500; font-size:0.95rem;">💬 Piši mi na WhatsApp</a>
+    </div>
 
     <div class="contact-grid">
 
       <form class="contact-form" action="https://formspree.io/f/xnjonjvr" method="POST">
+        <p style="color:rgba(255,255,255,0.75); font-size:0.88rem; margin-bottom:4px;">Imaš pitanje prije rezervacije? Pošalji ga ovdje — odgovaram u roku od 24 sata.</p>
         <div class="form-row">
           <div class="form-group">
             <label>Ime</label>
@@ -1249,8 +1293,7 @@
           <label>Nešto još? (neobavezno)</label>
           <textarea name="message" placeholder="Tvoja trenutna razina, ciljevi, dostupnost..."></textarea>
         </div>
-        <button type="submit" class="btn-submit">Pošalji upit →</button>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="contact-footer" style="color:rgba(255,255,255,0.8); font-size:0.88rem; margin-top:8px; display:inline-block;">Ili rezerviraj direktno u mom kalendaru →</a>
+        <button type="submit" class="btn-submit">Pošalji pitanje →</button>
       </form>
 
       <div class="contact-info">
@@ -1275,7 +1318,7 @@
         <div class="contact-item">
           <div class="contact-icon">📱</div>
           <div class="contact-item-text">
-            <strong>WhatsApp & Viber</strong>
+            <strong><a href="https://wa.me/4915773410010" target="_blank" style="color:white; text-decoration:underline;">WhatsApp & Viber</a></strong>
             <span>004915773410010</span>
           </div>
         </div>
@@ -1332,11 +1375,26 @@ document.querySelectorAll('.language-card, .step, .price-card, .testimonial').fo
 });
 </script>
 
+<!-- STICKY MOBILE CTA BAR -->
+<div class="sticky-mobile-bar">
+  <a href="https://wa.me/4915773410010" target="_blank" data-cta="sticky-whatsapp" class="wa-btn" aria-label="Piši mi na WhatsApp">💬</a>
+  <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="sticky-mobile" class="btn-primary">Rezerviraj besplatni sat</a>
+</div>
+
 <script>
 // GA4 key event tracking: Cal.com booking clicks and contact form submissions
 document.querySelectorAll('a[href*="cal.com"]').forEach(function (link) {
   link.addEventListener('click', function () {
     gtag('event', 'book_trial_click', {
+      event_category: 'engagement',
+      event_label: link.dataset.cta || 'unknown'
+    });
+  });
+});
+
+document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    gtag('event', 'whatsapp_click', {
       event_category: 'engagement',
       event_label: link.dataset.cta || 'unknown'
     });

@@ -957,6 +957,35 @@
     .about-visual { width: 100%; max-width: 480px; margin: 0 auto; }
     .about-photo-placeholder { width: 100%; }
     .about-badge { right: 0; bottom: -12px; }
+    body { padding-bottom: 72px; }
+    .sticky-mobile-bar { display: flex; }
+  }
+  .sticky-mobile-bar {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 200;
+    background: var(--white);
+    border-top: 1px solid rgba(28,28,26,0.1);
+    box-shadow: 0 -4px 20px rgba(28,28,26,0.1);
+    padding: 10px 16px;
+    gap: 10px;
+    align-items: center;
+  }
+  .sticky-mobile-bar .wa-btn {
+    flex: 0 0 auto;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--teal-light);
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  .sticky-mobile-bar .btn-primary {
+    flex: 1;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
 </style>
 </head>
@@ -995,6 +1024,7 @@
         <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="hero" class="btn-primary">Book a free trial lesson</a>
         <a href="#how" class="btn-ghost">How it works →</a>
       </div>
+      <p style="font-size:0.82rem; color:var(--ink-soft); margin-top:14px; display:flex; align-items:center; gap:6px;"><span style="color:var(--teal);">✓</span> No card needed · No commitment · Just 30 minutes</p>
     </div>
 
     <div class="hero-visual fade-up delay-3">
@@ -1113,9 +1143,10 @@
       <div class="about-content">
         <div class="section-label">About your tutor</div>
         <h2 class="section-title">Learning a language<span style="opacity: 0.2;">.</span><span style="opacity: 0.45;">.</span><span style="opacity: 0.7;">.</span><br><span class="shimmer-about">ist nicht leicht – non è facile – ni lahko.</span></h2>
-        <p>I'm Marina Toto, a Croatian tutor based in Kastav, a medieval hilltop town near Rijeka, with an MA in Sociology and a passion for language that spans six languages; none of them came easy, especially German 🫠. I draw on TESOL methodology, focused on real communication rather than just grammar rules. Learning from the inside out is something I know well: the frustration, the shame of making mistakes, the breakthroughs, the patience it takes to get there.</p>
-        <p>I offer warm, structured, and flexible online lessons tailored to you; whether you're a complete beginner, preparing for an exam, moving to a new country, or raising a bilingual child.</p>
-        <p>Every lesson is 1-on-1. No big groups, no generic lesson plans. Just us, your goals, and a plan that works.</p>
+        <p>I'm Marina Toto, a Croatian tutor based in Kastav, a medieval hilltop town near Rijeka, with an MA in Sociology. Alongside teaching, I bring 15 years of project management experience, including 8 years in tech project management — in Berlin, in both English and German — handling custom technical work for enterprise clients. I know what it's like to build a career and a life in a language that isn't your own, not just order coffee in it.</p>
+        <p>That's also how I teach: less time on grammar you'll never use, more on knowing what actually matters day to day — reading a lease, small talk with neighbours, holding your own in a work meeting, raising a bilingual kid. I draw on TESOL methodology, but the real curriculum comes from having lived it myself: the frustration, the mistakes, the slow breakthroughs.</p>
+        <p>I speak six languages — Croatian (native), English (C2), German (C1, telc-certified), and three more picked up along the way. Most I learned as an adult, mostly on my own. None of them came easy, especially German 🫠.</p>
+        <p>Whether you're a complete beginner, preparing for an exam, moving to a new country, or raising a bilingual child, every lesson is 1-on-1 — no big groups, no generic lesson plans. Just us, your goals, and a plan that works.</p>
 
         <div class="about-langs">
           <div class="lang-pill">🇭🇷 Croatian</div>
@@ -1223,7 +1254,8 @@
       </div>
 
     </div>
-    <p style="text-align:center;margin-top:28px;font-size:0.85rem;color:var(--ink-soft);">If none of these feel right, just reach out - we can always talk and find something that works for you.</p>
+    <p style="text-align:center;margin-top:24px;font-size:0.85rem;color:var(--teal);font-weight:500;">✓ Every plan starts with a free 30-minute trial — no card, no commitment</p>
+    <p style="text-align:center;margin-top:8px;font-size:0.85rem;color:var(--ink-soft);">If none of these feel right, just reach out - we can always talk and find something that works for you.</p>
   </div>
 </section>
 
@@ -1271,6 +1303,12 @@
         </div>
       </div>
 
+    </div>
+
+    <div style="margin-top:56px; text-align:center; background:var(--teal-light); border-radius:var(--radius-lg); padding:44px 32px;">
+      <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--ink); margin-bottom:10px;">Ready to see how this feels for you?</h3>
+      <p style="color:var(--ink-soft); max-width:440px; margin:0 auto 24px;">Your free 30-minute trial lesson is the easiest way to find out. No card, no pressure — just a real conversation.</p>
+      <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="testimonials" class="btn-primary">Book a free trial lesson</a>
     </div>
   </div>
 </section>
@@ -1348,11 +1386,17 @@
   <div class="section-inner">
     <div class="section-label">Get in touch</div>
     <h2 class="section-title">Book your free trial lesson</h2>
-    <p class="section-sub">Fill in the form and I'll get back to you within 24 hours to schedule your first lesson. No commitment, no pressure.</p>
+    <p class="section-sub">Pick a time that works for you — free, no card, no pressure. Prefer to ask something first? Message me directly or use the form below.</p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; margin-bottom:56px;">
+      <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="contact-primary" class="btn-pricing btn-pricing-white" style="display:inline-block; padding:14px 32px; font-size:0.98rem;">Book your free trial lesson →</a>
+      <a href="https://wa.me/4915773410010" target="_blank" data-cta="whatsapp" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:40px; border:1.5px solid rgba(255,255,255,0.5); color:white; text-decoration:none; font-weight:500; font-size:0.95rem;">💬 Message me on WhatsApp</a>
+    </div>
 
     <div class="contact-grid">
 
       <form class="contact-form" action="https://formspree.io/f/xnjonjvr" method="POST">
+        <p style="color:rgba(255,255,255,0.75); font-size:0.88rem; margin-bottom:4px;">Have a question before booking? Send it here and I'll reply within 24 hours.</p>
         <div class="form-row">
           <div class="form-group">
             <label>First name</label>
@@ -1391,8 +1435,7 @@
           <label>Anything else? (optional)</label>
           <textarea name="message" placeholder="Your current level, goals, availability..."></textarea>
         </div>
-        <button type="submit" class="btn-submit">Send my request →</button>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="contact-footer" style="color:rgba(255,255,255,0.8); font-size:0.88rem; margin-top:8px; display:inline-block;">Or book directly in my calendar →</a>
+        <button type="submit" class="btn-submit">Send my question →</button>
       </form>
 
       <div class="contact-info">
@@ -1417,7 +1460,7 @@
         <div class="contact-item">
           <div class="contact-icon">📱</div>
           <div class="contact-item-text">
-            <strong>WhatsApp & Viber</strong>
+            <strong><a href="https://wa.me/4915773410010" target="_blank" style="color:white; text-decoration:underline;">WhatsApp & Viber</a></strong>
             <span>004915773410010</span>
           </div>
         </div>
@@ -1456,11 +1499,26 @@
   </div>
 </footer>
 
+<!-- STICKY MOBILE CTA BAR -->
+<div class="sticky-mobile-bar">
+  <a href="https://wa.me/4915773410010" target="_blank" data-cta="sticky-whatsapp" class="wa-btn" aria-label="Message on WhatsApp">💬</a>
+  <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="sticky-mobile" class="btn-primary">Book a free trial lesson</a>
+</div>
+
 <script>
 // GA4 key event tracking: Cal.com booking clicks and contact form submissions
 document.querySelectorAll('a[href*="cal.com"]').forEach(function (link) {
   link.addEventListener('click', function () {
     gtag('event', 'book_trial_click', {
+      event_category: 'engagement',
+      event_label: link.dataset.cta || 'unknown'
+    });
+  });
+});
+
+document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    gtag('event', 'whatsapp_click', {
       event_category: 'engagement',
       event_label: link.dataset.cta || 'unknown'
     });

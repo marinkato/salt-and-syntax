@@ -1053,6 +1053,35 @@
     .about-visual { width: 100%; max-width: 480px; margin: 0 auto; }
     .about-photo-placeholder { width: 100%; }
     .about-badge { right: 0; bottom: -12px; }
+    body { padding-bottom: 72px; }
+    .sticky-mobile-bar { display: flex; }
+  }
+  .sticky-mobile-bar {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    z-index: 200;
+    background: var(--white);
+    border-top: 1px solid rgba(28,28,26,0.1);
+    box-shadow: 0 -4px 20px rgba(28,28,26,0.1);
+    padding: 10px 16px;
+    gap: 10px;
+    align-items: center;
+  }
+  .sticky-mobile-bar .wa-btn {
+    flex: 0 0 auto;
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--teal-light);
+    color: var(--teal);
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  .sticky-mobile-bar .btn-primary {
+    flex: 1;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 0.9rem;
   }
 </style>
 </head>
@@ -1091,6 +1120,7 @@
         <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="hero" class="btn-primary">Kostenlose Probestunde buchen</a>
         <a href="#how" class="btn-ghost">So funktioniert's →</a>
       </div>
+      <p style="font-size:0.82rem; color:var(--ink-soft); margin-top:14px; display:flex; align-items:center; gap:6px;"><span style="color:var(--teal);">✓</span> Keine Kreditkarte · Keine Verpflichtung · Nur 30 Minuten</p>
     </div>
 
     <div class="hero-visual fade-up delay-3">
@@ -1209,9 +1239,10 @@
       <div class="about-content">
         <div class="section-label">Über deine Lehrerin</div>
         <h2 class="section-title">Eine Sprache lernen<span style="opacity: 0.2;">.</span><span style="opacity: 0.45;">.</span><span style="opacity: 0.7;">.</span><br><span class="shimmer-about">ist nicht leicht – non è facile – ni lahko.</span></h2>
-        <p>Ich bin Marina Toto, eine Kroatischlehrerin aus Kastav, einer mittelalterlichen Kleinstadt bei Rijeka, mit einem Masterabschluss in Soziologie und einer tiefen Leidenschaft für Sprachen – sechs davon spreche ich, keine davon kam leicht, am wenigsten Deutsch 🫠. Mein Unterricht basiert auf der TESOL-Methodik und zielt auf echte Kommunikation ab, nicht auf trockene Grammatikübungen.</p>
-        <p>Ich weiß genau, wie es sich anfühlt, in einem fremden Land mit einer fremden Sprache anzufangen – die Frustration, die Peinlichkeit beim Fehler machen, und schließlich den Moment, wenn es plötzlich klickt.</p>
-        <p>Jede Stunde ist 1:1. Kein großer Kurs, kein Einheitsplan. Nur wir zwei, deine Ziele und ein Plan, der wirklich zu dir passt.</p>
+        <p>Ich bin Marina Toto, eine Kroatischlehrerin aus Kastav, einer mittelalterlichen Kleinstadt bei Rijeka, mit einem Masterabschluss in Soziologie. Neben dem Unterrichten bringe ich 15 Jahre Erfahrung im Projektmanagement mit, davon 8 Jahre speziell im technischen Projektmanagement – in Berlin, auf Englisch und Deutsch – mit kundenspezifischen technischen Projekten für Unternehmenskunden. Ich weiß, wie es ist, sich eine Karriere und ein Leben in einer Sprache aufzubauen, die nicht die eigene ist – nicht nur einen Kaffee darin zu bestellen.</p>
+        <p>Genau so unterrichte ich auch: weniger Zeit mit Grammatik, die du nie brauchen wirst, mehr Fokus auf das, was im Alltag wirklich zählt – einen Mietvertrag lesen, Smalltalk mit Nachbarn, dich in einem Arbeitsmeeting behaupten, ein zweisprachiges Kind großziehen. Ich nutze die TESOL-Methodik, aber der eigentliche Lehrplan kommt daher, dass ich es selbst erlebt habe: die Frustration, die Fehler, die langsamen Durchbrüche.</p>
+        <p>Ich spreche sechs Sprachen – Kroatisch (Muttersprache), Englisch (C2), Deutsch (C1, telc-zertifiziert) und drei weitere, die ich unterwegs aufgeschnappt habe. Die meisten habe ich als Erwachsene gelernt, größtenteils autodidaktisch. Keine davon kam leicht, am wenigsten Deutsch 🫠.</p>
+        <p>Ob du absoluter Anfänger bist, dich auf eine Prüfung vorbereitest, in ein neues Land ziehst oder ein zweisprachiges Kind großziehst – jede Stunde ist 1:1, keine großen Kurse, keine Einheitspläne. Nur wir zwei, deine Ziele und ein Plan, der wirklich funktioniert.</p>
 
         <div class="about-langs">
           <div class="lang-pill">🇭🇷 Kroatisch</div>
@@ -1319,7 +1350,8 @@
       </div>
 
     </div>
-    <p style="text-align:center;margin-top:28px;font-size:0.85rem;color:var(--ink-soft);">Nichts davon passt zu dir? Schreib mir einfach – wir finden gemeinsam etwas, das für dich funktioniert.</p>
+    <p style="text-align:center;margin-top:24px;font-size:0.85rem;color:var(--teal);font-weight:500;">✓ Jedes Paket beginnt mit einer kostenlosen 30-minütigen Probestunde — keine Kreditkarte, keine Verpflichtung</p>
+    <p style="text-align:center;margin-top:8px;font-size:0.85rem;color:var(--ink-soft);">Nichts davon passt zu dir? Schreib mir einfach – wir finden gemeinsam etwas, das für dich funktioniert.</p>
   </div>
 </section>
 
@@ -1367,6 +1399,12 @@
         </div>
       </div>
 
+    </div>
+
+    <div style="margin-top:56px; text-align:center; background:var(--teal-light); border-radius:var(--radius-lg); padding:44px 32px;">
+      <h3 style="font-family:var(--font-serif); font-size:1.4rem; color:var(--ink); margin-bottom:10px;">Bereit, es selbst zu erleben?</h3>
+      <p style="color:var(--ink-soft); max-width:440px; margin:0 auto 24px;">Deine kostenlose 30-minütige Probestunde ist der einfachste Weg, es herauszufinden. Keine Kreditkarte, kein Druck — einfach ein echtes Gespräch.</p>
+      <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="testimonials" class="btn-primary">Kostenlose Probestunde buchen</a>
     </div>
   </div>
 </section>
@@ -1418,11 +1456,17 @@
   <div class="section-inner">
     <div class="section-label">Kontakt</div>
     <h2 class="section-title">Kostenlose Probestunde buchen</h2>
-    <p class="section-sub">Füll das Formular aus und ich melde mich innerhalb von 24 Stunden, um deine erste Stunde zu planen. Kein Vertrag, kein Druck.</p>
+    <p class="section-sub">Wähle einfach eine passende Zeit — kostenlos, keine Kreditkarte, kein Druck. Möchtest du vorher etwas fragen? Schreib mir direkt oder nutze das Formular unten.</p>
+
+    <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; margin-bottom:56px;">
+      <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="contact-primary" class="btn-pricing btn-pricing-white" style="display:inline-block; padding:14px 32px; font-size:0.98rem;">Kostenlose Probestunde buchen →</a>
+      <a href="https://wa.me/4915773410010" target="_blank" data-cta="whatsapp" style="display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:40px; border:1.5px solid rgba(255,255,255,0.5); color:white; text-decoration:none; font-weight:500; font-size:0.95rem;">💬 Auf WhatsApp schreiben</a>
+    </div>
 
     <div class="contact-grid">
 
       <form class="contact-form" action="https://formspree.io/f/xnjonjvr" method="POST">
+        <p style="color:rgba(255,255,255,0.75); font-size:0.88rem; margin-bottom:4px;">Hast du vor der Buchung eine Frage? Schreib sie hier — ich antworte innerhalb von 24 Stunden.</p>
         <div class="form-row">
           <div class="form-group">
             <label>Vorname</label>
@@ -1461,8 +1505,7 @@
           <label>Noch etwas? (optional)</label>
           <textarea name="message" placeholder="Dein aktuelles Niveau, Ziele, Verfügbarkeit..."></textarea>
         </div>
-        <button type="submit" class="btn-submit">Anfrage senden →</button>
-        <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="contact-footer" style="color:rgba(255,255,255,0.8); font-size:0.88rem; margin-top:8px; display:inline-block;">Oder direkt in meinem Kalender buchen →</a>
+        <button type="submit" class="btn-submit">Frage senden →</button>
       </form>
 
       <div class="contact-info">
@@ -1487,7 +1530,7 @@
         <div class="contact-item">
           <div class="contact-icon">📱</div>
           <div class="contact-item-text">
-            <strong>WhatsApp & Viber</strong>
+            <strong><a href="https://wa.me/4915773410010" target="_blank" style="color:white; text-decoration:underline;">WhatsApp & Viber</a></strong>
             <span>004915773410010</span>
           </div>
         </div>
@@ -1545,11 +1588,26 @@ document.querySelectorAll('.language-card, .step, .price-card, .testimonial').fo
 });
 </script>
 
+<!-- STICKY MOBILE CTA BAR -->
+<div class="sticky-mobile-bar">
+  <a href="https://wa.me/4915773410010" target="_blank" data-cta="sticky-whatsapp" class="wa-btn" aria-label="Auf WhatsApp schreiben">💬</a>
+  <a href="https://cal.com/marina-toto-5ttpru/30min" target="_blank" data-cta="sticky-mobile" class="btn-primary">Kostenlose Probestunde buchen</a>
+</div>
+
 <script>
 // GA4 key event tracking: Cal.com booking clicks and contact form submissions
 document.querySelectorAll('a[href*="cal.com"]').forEach(function (link) {
   link.addEventListener('click', function () {
     gtag('event', 'book_trial_click', {
+      event_category: 'engagement',
+      event_label: link.dataset.cta || 'unknown'
+    });
+  });
+});
+
+document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    gtag('event', 'whatsapp_click', {
       event_category: 'engagement',
       event_label: link.dataset.cta || 'unknown'
     });
