@@ -915,6 +915,18 @@
       line-height: 1.8;
     }
 
+    .nav-links a { white-space: nowrap; }
+    @media (max-width: 1200px) {
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.85rem; }
+      .lang-switcher { padding: 4px 10px; }
+      .nav-cta { padding: 7px 14px; }
+    }
+    @media (max-width: 1023px) {
+      .nav-links { display: none; }
+      .mobile-lang { display: flex; gap: 14px; align-items: center; }
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; padding-top: 48px; min-height: auto; }

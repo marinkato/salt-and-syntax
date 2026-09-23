@@ -53,18 +53,20 @@
 
   var style = document.createElement('style');
   style.textContent =
-    '.ss-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:300;max-width:560px;margin:0 auto;' +
-    'background:#fff;color:#1C1C1A;border:1px solid rgba(28,28,26,0.1);border-radius:16px;' +
-    'box-shadow:0 12px 40px rgba(28,28,26,0.18);padding:18px 20px;font-family:"DM Sans",system-ui,sans-serif;' +
-    'font-size:0.9rem;line-height:1.55}' +
-    '.ss-consent p{margin:0 0 12px;color:#3D3C38}' +
+    '.ss-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:300;max-width:720px;margin:0 auto;' +
+    'display:flex;align-items:center;gap:20px;background:#fff;color:#1C1C1A;border:1px solid rgba(28,28,26,0.1);' +
+    'border-radius:14px;box-shadow:0 8px 28px rgba(28,28,26,0.14);padding:14px 16px 14px 20px;' +
+    'font-family:"DM Sans",system-ui,sans-serif;font-size:0.85rem;line-height:1.5}' +
+    '.ss-consent p{margin:0;flex:1;color:#3D3C38}' +
     '.ss-consent a{color:#2C7873}' +
-    '.ss-consent-actions{display:flex;gap:10px;flex-wrap:wrap}' +
-    '.ss-consent button{flex:1;min-width:120px;padding:10px 18px;border-radius:40px;font:500 0.9rem "DM Sans",system-ui,sans-serif;cursor:pointer;' +
+    '.ss-consent-actions{display:flex;gap:8px;flex:none}' +
+    '.ss-consent button{padding:8px 18px;border-radius:40px;font:500 0.85rem "DM Sans",system-ui,sans-serif;cursor:pointer;' +
     'border:1.5px solid #2C7873}' +
     '.ss-consent .ss-accept{background:#2C7873;color:#fff}' +
     '.ss-consent .ss-decline{background:#fff;color:#2C7873}' +
-    '@media (max-width:900px){.ss-consent{bottom:80px}}';
+    '@media (max-width:900px){.ss-consent{bottom:80px}}' +
+    '@media (max-width:600px){.ss-consent{flex-direction:column;align-items:stretch;gap:12px}' +
+    '.ss-consent-actions button{flex:1}}';
   document.head.appendChild(style);
 
   var banner = null;
