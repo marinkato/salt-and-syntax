@@ -1116,6 +1116,17 @@
   @media (max-width: 900px) {
     .sticky-mobile-bar { display: flex; }
   }
+
+  /* ── ALIGNMENT: nav, hero, sections and footer share one 1100px content column ── */
+  nav, footer { padding-left: max(5vw, calc((100% - 1100px) / 2)); padding-right: max(5vw, calc((100% - 1100px) / 2)); }
+  .hero { max-width: calc(1100px + 10vw); }
+  .nav-links { margin-left: auto; }
+  footer .footer-logo { margin-left: 0; }
+  @media (min-width: 901px) {
+    footer > div:nth-of-type(1) { order: 3; flex-basis: 100%; text-align: left !important; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
+    footer > div:nth-of-type(2) { order: 2; }
+    footer > div:nth-of-type(2) a:first-child { margin-left: 0; }
+  }
 </style>
 </head>
 <body>
