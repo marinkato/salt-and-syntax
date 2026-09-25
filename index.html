@@ -1683,12 +1683,28 @@ document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
   });
 });
 
+// Contact form: send via Formspree in the background, then show the thank-you page.
+// generate_lead fires on the thank-you page, so it only counts real submissions.
 document.querySelectorAll('.contact-form').forEach(function (form) {
-  form.addEventListener('submit', function () {
-    gtag('event', 'generate_lead', {
-      event_category: 'engagement',
-      event_label: 'contact_form',
-      transport_type: 'beacon'
+  form.addEventListener('submit', function (e) {
+    if (!window.fetch) return;
+    e.preventDefault();
+    var btn = form.querySelector('.btn-submit');
+    var label = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (res) {
+      if (!res.ok) throw new Error('Formspree ' + res.status);
+      try { sessionStorage.setItem('ss-lead', '1'); } catch (err) {}
+      window.location.href = '/thank-you.html';
+    }).catch(function () {
+      btn.disabled = false;
+      btn.textContent = label;
+      alert('Something went wrong. Please try again or email hello@saltandsyntax.me.');
     });
   });
 });
