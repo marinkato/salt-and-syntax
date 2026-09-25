@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // One Cal.com event = one redirect URL, so pick the language from the browser.
+  // Must run before consent.js so the cookie banner uses the same language.
+  (function () {
+    var langs = (navigator.languages || [navigator.language || 'en']).map(function (l) { return String(l).slice(0, 2).toLowerCase(); });
+    var pick = 'en';
+    for (var i = 0; i < langs.length; i++) {
+      if (['hr', 'bs', 'sr'].indexOf(langs[i]) !== -1) { pick = 'hr'; break; }
+      if (langs[i] === 'de') { pick = 'de'; break; }
+      if (langs[i] === 'en') break;
+    }
+    document.documentElement.lang = pick;
+  })();
+</script>
+<script src="/consent.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booked | Salt & Syntax</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/icons/icon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/icons/icon-180.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sand: #F5F0E8; --ink: #1C1C1A; --ink-mid: #3D3C38; --ink-soft: #6B6960;
+    --teal: #2C7873; --white: #FFFFFF;
+    --font-serif: 'Lora', Georgia, serif; --font-sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html, body { height: 100%; }
+  body { font-family: var(--font-sans); background: var(--sand); color: var(--ink); line-height: 1.75; font-size: 16px; display: flex; flex-direction: column; }
+  nav { padding: 0 5vw; height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(44,120,115,0.12); }
+  .nav-logo { font-family: var(--font-serif); font-size: 1.25rem; color: var(--ink); text-decoration: none; }
+  .nav-logo span { color: var(--teal); }
+  nav .back { color: var(--teal); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+  main { flex: 1; width: 100%; max-width: 640px; margin: 0 auto; padding: 80px 5vw 96px; text-align: center; }
+  .check { width: 64px; height: 64px; border-radius: 50%; background: rgba(44,120,115,0.12); color: var(--teal); display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; }
+  h1 { font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.5rem); line-height: 1.25; margin-bottom: 1rem; letter-spacing: -0.02em; }
+  p { color: var(--ink-mid); margin-bottom: 0.9rem; }
+  .box { background: var(--white); border: 1px solid rgba(28,28,26,0.08); border-radius: 16px; padding: 28px 24px; margin-top: 2.5rem; text-align: left; }
+  .box h2 { font-family: var(--font-serif); font-size: 1.2rem; margin-bottom: 0.8rem; text-align: center; }
+  .box ul { list-style: none; }
+  .box li { position: relative; padding-left: 28px; margin-bottom: 0.6rem; color: var(--ink-mid); font-size: 0.95rem; }
+  .box li::before { content: '✓'; position: absolute; left: 4px; color: var(--teal); font-weight: 600; }
+  .box .small { text-align: center; font-size: 0.9rem; color: var(--ink-soft); margin: 1.2rem 0 0; }
+  .home { display: inline-block; margin-top: 2rem; color: var(--teal); font-size: 0.9rem; font-weight: 500; text-decoration: none; }
+  footer { background: var(--ink); color: rgba(255,255,255,0.5); padding: 32px 5vw; font-size: 0.85rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; margin-left: 16px; }
+  footer a:hover { color: white; }
+</style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo" data-home>Salt <span>&</span> Syntax</a>
+  <a href="/" class="back" data-home data-t="back">← Back to website</a>
+</nav>
+<main>
+  <div class="check" aria-hidden="true">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+  </div>
+  <h1 data-t="h1">Your trial lesson is booked!</h1>
+  <p data-t="p1">You'll get a confirmation email with the date, time and the link to our lesson.</p>
+  <p data-t="p2">I'm looking forward to meeting you!</p>
+
+  <div class="box">
+    <h2 data-t="h2">Before the lesson</h2>
+    <ul>
+      <li data-t="li1">Find a quiet spot and check that your camera and microphone work.</li>
+      <li data-t="li2">Think about why you want to learn and what you'd like to be able to say.</li>
+      <li data-t="li3">No need to prepare anything else — we'll figure out your level together.</li>
+    </ul>
+    <p class="small" data-t="small">Need to reschedule? Use the link in your confirmation email or message me on <a href="https://wa.me/4915773410010" target="_blank" data-cta="booked-whatsapp">WhatsApp</a>.</p>
+  </div>
+
+  <a href="/" class="home" data-home data-t="back">← Back to website</a>
+</main>
+<footer>
+  <span>© 2026 Salt & Syntax · Obrt za usluge vl. Marina Toto · Trinajstići 61, 51215 Kastav · OIB: 73634216857</span>
+  <span><a href="/privacy.html" data-privacy data-t="privacy">Privacy policy</a><a href="#" data-cookie-settings data-t="cookie">Cookie settings</a></span>
+</footer>
+<script>
+var T = {
+  hr: {
+    title: 'Termin rezerviran', home: '/index-hr.html', privacyHref: '/privacy-hr.html',
+    back: '← Natrag na stranicu',
+    h1: 'Tvoj probni sat je rezerviran!',
+    p1: 'Na e-mail ti stiže potvrda s datumom, vremenom i linkom za sat.',
+    p2: 'Veselim se našem upoznavanju!',
+    h2: 'Prije sata',
+    li1: 'Nađi mirno mjesto i provjeri rade li kamera i mikrofon.',
+    li2: 'Razmisli zašto želiš učiti i što bi voljela ili volio znati reći.',
+    li3: 'Ništa drugo ne trebaš pripremati — razinu ćemo zajedno procijeniti.',
+    small: 'Trebaš promijeniti termin? Iskoristi link iz e-maila s potvrdom ili mi piši na <a href="https://wa.me/4915773410010" target="_blank" data-cta="booked-whatsapp">WhatsApp</a>.',
+    privacy: 'Pravila privatnosti', cookie: 'Postavke kolačića'
+  },
+  de: {
+    title: 'Termin gebucht', home: '/index-de.html', privacyHref: '/privacy-de.html',
+    back: '← Zurück zur Website',
+    h1: 'Deine Probestunde ist gebucht!',
+    p1: 'Du bekommst eine Bestätigung per E-Mail mit Datum, Uhrzeit und dem Link zur Stunde.',
+    p2: 'Ich freue mich darauf, dich kennenzulernen!',
+    h2: 'Vor der Stunde',
+    li1: 'Such dir einen ruhigen Ort und prüfe, ob Kamera und Mikrofon funktionieren.',
+    li2: 'Überleg dir, warum du lernen möchtest und was du gern sagen können würdest.',
+    li3: 'Sonst musst du nichts vorbereiten — dein Niveau finden wir gemeinsam heraus.',
+    small: 'Du musst den Termin verschieben? Nutze den Link in deiner Bestätigungs-E-Mail oder schreib mir auf <a href="https://wa.me/4915773410010" target="_blank" data-cta="booked-whatsapp">WhatsApp</a>.',
+    privacy: 'Datenschutz', cookie: 'Cookie-Einstellungen'
+  }
+};
+var t = T[document.documentElement.lang];
+if (t) {
+  document.title = t.title + ' | Salt & Syntax';
+  document.querySelectorAll('[data-t]').forEach(function (el) { el.innerHTML = t[el.dataset.t]; });
+  document.querySelectorAll('[data-home]').forEach(function (el) { el.href = t.home; });
+  document.querySelector('[data-privacy]').href = t.privacyHref;
+}
+
+// Cal.com redirects here after a booking. Count it once per browser session so a reload doesn't double-count.
+document.addEventListener('DOMContentLoaded', function () {
+  var counted = false;
+  try { counted = sessionStorage.getItem('ss-booked') === '1'; sessionStorage.setItem('ss-booked', '1'); } catch (e) {}
+  if (!counted) {
+    gtag('event', 'trial_booked', { event_category: 'engagement', event_label: 'cal.com', language: document.documentElement.lang });
+  }
+});
+document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    gtag('event', 'whatsapp_click', { event_category: 'engagement', event_label: link.dataset.cta || 'unknown' });
+  });
+});
+</script>
+</body>
+</html>
