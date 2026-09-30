@@ -1,0 +1,27 @@
+# Tells Bing (and through it ChatGPT search) and other IndexNow engines
+# about updated pages after every push to main.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'sitemap.xml'
+      - 'llms.txt'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Wait for GitHub Pages to publish
+        run: sleep 90
+      - name: Submit sitemap URLs to IndexNow
+        run: |
+          KEY=ce291a3090d3c566a81dc2b0606b77b9
+          URLS=$(grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -e 's/<loc>//' -e 's#</loc>##' | python3 -c 'import sys,json; print(json.dumps([l.strip() for l in sys.stdin if l.strip()]))')
+          BODY=$(printf '{"host":"saltandsyntax.me","key":"%s","keyLocation":"https://saltandsyntax.me/%s.txt","urlList":%s}' "$KEY" "$KEY" "$URLS")
+          echo "$BODY"
+          curl -sS -o /dev/null -w "IndexNow response: %{http_code}\n" -X POST "https://api.indexnow.org/indexnow"             -H "Content-Type: application/json; charset=utf-8" -d "$BODY"
