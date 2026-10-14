@@ -1163,6 +1163,11 @@
   .lang-who { margin-top: auto; align-items: flex-start; }
   .lang-who::before { margin-top: 0.6em; flex-shrink: 0; }
   .nowrap { white-space: nowrap; }
+
+  /* ── TRUST BAR: one even row on larger screens ── */
+  @media (min-width: 901px) {
+    .trust-bar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px 32px; padding: 24px max(5vw, calc((100% - 1100px) / 2)); }
+  }
 </style>
 </head>
 <body>
@@ -1242,10 +1247,6 @@
   <div class="trust-item">
     <div class="trust-icon">💼</div>
     <span><strong>8 godina u Berlinu</strong> – posao na njemačkom i engleskom</span>
-  </div>
-  <div class="trust-item">
-    <div class="trust-icon">🗣️</div>
-    <span><strong>6 jezika</strong> govori tvoja mentorica</span>
   </div>
 </div>
 
