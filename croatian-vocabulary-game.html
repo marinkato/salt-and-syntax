@@ -168,10 +168,12 @@
   .nav-cta { background: var(--teal); color: white; padding: 8px 18px; border-radius: 40px; text-decoration: none; font-size: 0.88rem; font-weight: 500; white-space: nowrap; }
   .nav-cta:hover { background: #235f5b; }
 
-  .intro { max-width: 720px; margin: 0 auto; padding: 48px 5vw 8px; }
+  /* Intro, game and text below all share the game's 940px column so their left edges line up. */
+  .intro { max-width: 940px; margin: 0 auto; padding: 36px 5vw 0; }
+  .intro > * { max-width: 700px; }
   .eyebrow { display: inline-block; background: var(--teal-light); color: var(--teal); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 40px; margin-bottom: 1.1rem; }
-  .intro h1 { font-family: var(--font-serif); font-weight: 500; color: var(--ink-mid); font-size: clamp(1.9rem, 4vw, 2.6rem); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; text-wrap: balance; }
-  .intro p { color: var(--ink-mid); margin-bottom: 0.8rem; line-height: 1.75; }
+  .intro h1 { font-family: var(--font-serif); font-weight: 500; color: var(--ink-mid); font-size: clamp(1.7rem, 3vw, 2.2rem); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 0.8rem; text-wrap: balance; }
+  .intro p { color: var(--ink-mid); margin-bottom: 0.5rem; line-height: 1.65; }
   .intro .small { font-size: 0.9rem; color: var(--ink-soft); }
   @media (max-width: 640px) {
     .intro { padding-top: 28px; }
@@ -227,13 +229,13 @@
     .vg .game-card p { display: none; }
     .vg .game-card .meta { margin-top: 2px; font-size: 0.68rem; }
   }
-  .vg .game-card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 18px; text-align: left; display: grid; gap: 6px; align-content: start; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .vg .game-card { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 16px; text-align: left; display: grid; gap: 6px; align-content: start; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
   .vg .game-card:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 14px 36px rgba(28,28,26,0.09); border-color: var(--teal); }
   .vg .game-card:disabled { opacity: 0.55; cursor: not-allowed; }
-  .vg .gico { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: var(--teal-light); color: var(--teal); }
-  .vg .game-card h3 { font-family: var(--font-serif); font-weight: 600; font-size: 1.25rem; line-height: 1.15; margin-top: 4px; }
+  .vg .gico { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--teal-light); color: var(--teal); }
+  .vg .game-card h3 { font-family: var(--font-serif); font-weight: 600; font-size: 1.12rem; line-height: 1.15; margin-top: 4px; }
   .vg .game-card .ghr { font-size: 0.82rem; color: var(--ink-soft); font-style: italic; }
-  .vg .game-card p { font-size: 0.92rem; color: var(--ink-mid); }
+  .vg .game-card p { font-size: 0.85rem; line-height: 1.45; color: var(--ink-mid); }
   .vg .game-card .meta { font-size: 0.72rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 6px; font-weight: 500; }
   .vg .game-card.hard .meta b { color: var(--coral); font-weight: 500; }
   .vg .dict-link { justify-self: start; background: none; border: none; padding: 0; color: var(--teal); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
@@ -336,7 +338,8 @@
   #vg-toast.show { transform: translate(-50%, 0); visibility: visible; }
   #vg-confetti { position: fixed; inset: 0; pointer-events: none; z-index: 250; width: 100%; height: 100%; }
 
-  .seo { max-width: 720px; margin: 0 auto; padding: 56px 5vw 0; }
+  .seo { max-width: 940px; margin: 0 auto; padding: 56px 5vw 0; }
+  .seo > * { max-width: 700px; }
   .seo h2 { font-family: var(--font-serif); font-weight: 600; font-size: 1.45rem; line-height: 1.3; margin: 2.2rem 0 0.8rem; }
   .seo h2:first-child { margin-top: 0; }
   .seo p, .seo li { color: var(--ink-mid); line-height: 1.75; }
