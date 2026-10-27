@@ -45,3 +45,4 @@
 - [Learning Croatian for your partner's family and friends](https://saltandsyntax.me/croatian-for-partners.html): guide for partners of Croatians.
 - [Kroatisch lernen für Partner, Familie und Freunde](https://saltandsyntax.me/kroatisch-partner-familie.html): the same guide in German.
 - [Kroatisch mit Duolingo?](https://saltandsyntax.me/kroatisch-duolingo.html): Duolingo has no Croatian course; which apps exist and what actually helps (German).
+- [Croatian vocabulary exercises (A2)](https://saltandsyntax.me/croatian-vocabulary-game.html): free Croatian exercises in a browser game with 152 everyday words (common verbs, days, colours, weather, family and daily life, travel, food and health). Seven games including speed quiz, memory, fill the gap, noun gender and past tense; no sign-up. Every correct answer sails a boat from Rijeka to Dubrovnik.
