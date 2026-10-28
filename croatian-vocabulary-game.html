@@ -521,7 +521,7 @@ document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
 const TOPICS = {
   vr: { words: [
     ["dosadno","boring"],["hladno","cold"],["kasno","late"],["lijepo","nice / beautiful"],["mračno","dark"],["oblačno","cloudy"],["rano","early"],["vedro","clear (sky)"],["vruće","hot"],["zabavno","fun / entertaining"],
-    ["malo","a bit"],["jako","very (informal)"],["vrlo","very (formal)"],["prilično","considerably"],["dosta","quite"],["stvarno","really"],["strašno / užasno","terribly"],["uskoro","soon"],
+    ["malo","a bit"],["jako","very (informal)"],["vrlo","very (formal)"],["prilično","fairly / rather"],["dosta","quite"],["stvarno","really"],["strašno / užasno","terribly"],["uskoro","soon"],
     ["ovdje","here"],["tamo","there"],["unutra","inside"],["vani","outside"],["svugdje","everywhere"],
     ["kiša","rain"],["snijeg","snow"],["vjetar","wind"],["vrijeme","weather"],
     ["padati","to fall (rain, snow)"],["puhati","to blow (wind)"],["bojati se","to be afraid"],["nadati se","to hope"],["sviđati se","to like / appeal to"],["smijati se","to laugh"]
@@ -531,7 +531,7 @@ const TOPICS = {
     { s: "Uzmi kišobran, vani pada ___.", a: "kiša", o: ["vjetar","more","kuća"], en: "Take an umbrella, it's raining outside." },
     { s: "Zatvori prozor, jako puše ___.", a: "vjetar", o: ["kiša","snijeg","kava"], en: "Close the window, the wind is blowing hard." },
     { s: "Zimi u planinama često pada ___.", a: "snijeg", o: ["vjetar","more","sir"], en: "In winter it often snows in the mountains." },
-    { s: "Dolazim jako ___.", a: "brzo", o: ["uskoro","dosadno","vani"], en: "I'm coming very soon. (jako uskoro is wrong!)" },
+    { s: "Dolazim jako ___.", a: "brzo", o: ["uskoro","dosadno","vani"], en: "I'll be there very quickly. (Not: jako uskoro!)" },
     { s: "___ je toplo, a vani je hladno.", a: "Unutra", o: ["Svugdje","Uskoro","Malo"], en: "It's warm inside, but cold outside." },
     { s: "Danas ___ hladno, možemo ići na plažu.", a: "nije", o: ["je","jako","strašno"], en: "It isn't cold today, we can go to the beach." },
     { s: "Kakvo je ___? — Sunčano.", a: "vrijeme", o: ["kiša","snijeg","vjetar"], en: "What's the weather like? — Sunny." },
@@ -554,7 +554,7 @@ const TOPICS = {
     { s: "Nova iskustva i hobiji najbolji su način za ___!", a: "opuštanje", o: ["pakiranje","rezerviranje","nošenje"], en: "New experiences and hobbies are the best way to relax!" }
   ]},
   ob: { words: [
-    ["obitelj","family"],["žena / supruga","wife"],["pas","dog"],["doručak","breakfast"],["večera","dinner"],["posao","job"],["ured","office"],["rodbina","relatives"],["baka","grandma"],["djed","grandpa"],["odmor","vacation / rest"],["igračka","toy"],["kolač","cake"],["umoran","tired"],["zanimljiv","interesting"],["ljubazan","kind / friendly"],["kuća","house"],["prijatelj","friend"],["dan","day"],["tjedan","week"],
+    ["obitelj","family"],["žena / supruga","wife"],["pas","dog"],["doručak","breakfast"],["večera","dinner"],["posao","job"],["ured","office"],["rodbina","relatives"],["baka","grandma"],["djed","grandpa"],["odmor","holiday / rest"],["igračka","toy"],["kolač","cake"],["umoran","tired"],["zanimljiv","interesting"],["ljubazan","kind / friendly"],["kuća","house"],["prijatelj","friend"],["dan","day"],["tjedan","week"],
     ["živjeti","to live"],["imati","to have"],["voljeti","to love / like"],["trčati","to run"],["igrati se","to play"],["ustajati","to get up"],["piti","to drink"],["spremati","to prepare / make"],["ići","to go"],["raditi","to work"],["kuhati","to cook"],["gledati","to watch"],["razgovarati","to talk / converse"],["čuti se","to talk on the phone"],["posjetiti","to visit"],["jesti","to eat"],["šetati","to walk"]
   ], sentences: [
     { s: "Imamo malog ___ koji voli trčati po kući.", a: "psa", o: ["ured","doručak","kolač"], en: "We have a little dog who loves running around the house." },
@@ -576,7 +576,7 @@ const TOPICS = {
     ["ponedjeljak","Monday"],["utorak","Tuesday"],["srijeda","Wednesday"],["četvrtak","Thursday"],["petak","Friday"],["subota","Saturday"],["nedjelja","Sunday"],
     ["crven","red"],["plav","blue"],["zelen","green"],["žut","yellow"],["bijel","white"],["crn","black"]
   ], sentences: [
-    { s: "Ne ___ plivati, nikad nisam učio.", a: "znam", o: ["vidim","dam","kupim"], en: "I can't swim, I never learned." },
+    { s: "Ne ___ plivati, nikad nisam naučio.", a: "znam", o: ["vidim","dam","kupim"], en: "I can't swim, I never learned." },
     { s: "___ li dobiti kavu, molim?", a: "Mogu", o: ["Znam","Vidim","Dođem"], en: "Can I have a coffee, please?" },
     { s: "Danas ___ kupiti kruh i mlijeko.", a: "trebam", o: ["vidim","dođem","dam"], en: "Today I need to buy bread and milk." },
     { s: "Ne ___ dobro, trebam naočale.", a: "vidim", o: ["dam","dođem","kupim"], en: "I can't see well, I need glasses." },
@@ -620,7 +620,7 @@ const ODD = [
   { w: ["malo","jako","vrlo","kruh"], odd: "kruh", cat: "koliko?", catEn: "words of intensity" },
   { w: ["trčati","šetati","plivati","spavati"], odd: "spavati", cat: "kretanje", catEn: "moving your body" },
   { w: ["kuća","hotel","ured","kava"], odd: "kava", cat: "zgrade", catEn: "buildings" },
-  { w: ["riba","piletina","sir","voće"], odd: "voće", cat: "hrana", catEn: "fish, meat and cheese" },
+  { w: ["riba","piletina","sir","voće"], odd: "voće", cat: "riba, meso i sir", catEn: "fish, meat and cheese" },
   { w: ["crven","plav","zelen","kruh"], odd: "kruh", cat: "boje", catEn: "colours" },
   { w: ["ponedjeljak","srijeda","petak","snijeg"], odd: "snijeg", cat: "dani u tjednu", catEn: "days of the week" },
   { w: ["htjeti","moći","trebati","kuća"], odd: "kuća", cat: "česti glagoli", catEn: "common verbs" },
@@ -657,7 +657,7 @@ const VERBS = { "smijati se": ["smijem se","smijao se","smijala se"],
   "odmarati se": ["odmaram se","odmarao se","odmarala se"], "padati": ["padam","padao","padala"], "puhati": ["pušem","puhao","puhala"],
   "bojati se": ["bojim se","bojao se","bojala se"], "nadati se": ["nadam se","nadao se","nadala se"], "sviđati se": ["sviđam se","sviđao se","sviđala se"],
   "htjeti": ["hoću","htio","htjela"], "moći": ["mogu","mogao","mogla"], "trebati": ["trebam","trebao","trebala"], "znati": ["znam","znao","znala"],
-  "vidjeti": ["vidim","vidio","vidjela"], "dati": ["dam","dao","dala"], "doći": ["dođem","došao","došla"], "reći": ["kažem","rekao","rekla"],
+  "vidjeti": ["vidim","vidio","vidjela"], "dati": ["dam","dao","dala"], "doći": ["dođem","došao","došla"], "reći": ["reknem","rekao","rekla"],
   "misliti": ["mislim","mislio","mislila"], "uzeti": ["uzmem","uzeo","uzela"], "kupiti": ["kupim","kupio","kupila"]
 };
 const GENDER = { m: "masculine", ž: "feminine", s: "neuter" };
@@ -1137,11 +1137,13 @@ function genderGame() {
 /* ---------- game: past tense (glagolski pridjev radni) ---------- */
 function pastGame() {
   openGame(TITLES.past);
-  const SKIP = ["boljeti", "padati", "puhati", "sviđati se", "nadati se", "moći"];
+  const SKIP = ["boljeti", "padati", "puhati", "sviđati se", "nadati se", "moći", "voljeti", "živjeti", "ustajati"];
   const cand = ALL_WORDS.filter((w) => VERBS[w.hr] && !SKIP.includes(w.hr));
   const qs = sample(cand, 10).map((w) => ({ w, she: Math.random() < 0.5 }));
   const EXTRA = { "baviti se (sportom)": " sportom", "čuti se": " s bakom", "bojati se": " psa", "htjeti": " kavu", "trebati": " novac", "znati": " odgovor",
-    "vidjeti": " more", "dati": " novac", "doći": " kući", "reći": " istinu", "misliti": " na nas", "uzeti": " kartu", "kupiti": " kruh" };
+    "vidjeti": " more", "dati": " novac", "doći": " kući", "reći": " istinu", "misliti": " na nas", "uzeti": " kartu", "kupiti": " kruh",
+    "imati": " sastanak", "posjetiti": " baku", "rezervirati": " sobu", "nositi": " ruksak", "spremati": " doručak", "gledati": " film",
+    "piti": " kavu", "jesti": " ribu", "voziti": " bicikl", "sjediti": " vani", "razgovarati": " s bakom" };
   const bare = (x) => x.replace(/ se$/, "");
   const results = []; let i = 0, right = 0, streak = 0, earned = 0; const missed = [];
   function render() {
