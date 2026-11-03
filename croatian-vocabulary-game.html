@@ -93,7 +93,7 @@
           "name": "How does the voyage from Rijeka to Dubrovnik work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Each correct answer moves your boat 1 mile, and from 3 correct answers in a row each one is worth 2 miles. A round only counts if you make no mistakes; otherwise the boat sails back to the last port. About six perfect rounds take you all the way to Dubrovnik."
+            "text": "Each correct answer moves your boat 1 or 2 miles. In most exercises you get 2 miles from the third correct answer in a row; each memory pair is worth 2 miles, and each unscrambled word 2 miles, or 1 if you use a hint. A round only counts if you make no mistakes; otherwise the boat sails back to the last port. About six perfect rounds take you all the way to Dubrovnik."
           }
         },
         {
@@ -407,11 +407,11 @@
     <div class="voyage-head">
       <h2 id="voyageTitle">Rijeka → Dubrovnik</h2>
       <div class="miles" aria-live="polite"><b id="milesNum">0</b> <span id="milesWord">miles</span></div>
-      <p class="rule">Each correct answer is worth 1 mile, or 2 miles once you get 3 in a row.<br>One mistake in a round and you sail back to the last port.</p>
+      <p class="rule">A correct answer earns 1 or 2 miles, and each exercise shows how many you can win.<br>One mistake in a round and you sail back to the last port.</p>
     </div>
     <div class="track" id="track"></div>
     <div class="voyage-foot"><span id="voyageNow"></span><span id="voyageNext"></span></div>
-    <p class="rule-mobile">Each correct answer is worth 1 mile, or 2 miles once you get 3 in a row.<br>One mistake and you sail back to the last port.</p>
+    <p class="rule-mobile">A correct answer earns 1 or 2 miles, and each exercise shows how many you can win.<br>One mistake and you sail back to the last port.</p>
   </section>
 
   <div id="hub" style="display:grid;gap:22px">
@@ -467,7 +467,7 @@
   </details>
   <details>
     <summary>How does the voyage from Rijeka to Dubrovnik work?</summary>
-    <p>Each correct answer moves your boat 1 mile, and from 3 correct answers in a row each one is worth 2 miles. A round only counts if you make no mistakes; otherwise the boat sails back to the last port. About six perfect rounds take you all the way to Dubrovnik.</p>
+    <p>Each correct answer moves your boat 1 or 2 miles. In most exercises you get 2 miles from the third correct answer in a row; each memory pair is worth 2 miles, and each unscrambled word 2 miles, or 1 if you use a hint. A round only counts if you make no mistakes; otherwise the boat sails back to the last port. About six perfect rounds take you all the way to Dubrovnik.</p>
   </details>
   <details>
     <summary>Why does the game show gender and plural?</summary>
@@ -785,13 +785,13 @@ const TITLES = { quiz: "Speed quiz", mem: "Memory pairs", fill: "Fill the gap", 
 function renderHub() {
   const nHard = state.hard.size;
   const games = [
-    { id: "quiz", hr: "Brzi kviz", p: "What does the word mean? Pick the answer before time runs out.", meta: "10 questions · 30 seconds each" },
-    { id: "mem", hr: "Memorija", p: "Turn over the cards and match each Croatian word with its English meaning.", meta: "6 pairs · 2 miles each" },
-    { id: "fill", hr: "Dopuni rečenicu", p: "Real sentences from A2 texts. Which word is missing?", meta: "8 sentences · with translation" },
-    { id: "scr", hr: "Složi riječ", p: "The letters are mixed up. Put the Croatian word back together.", meta: "8 words · LJ, NJ, DŽ are one letter" },
-    { id: "odd", hr: "Uljez", p: "Three words belong together. Which one doesn't?", meta: "6 rounds" },
-    { id: "gen", hr: "Koji je rod?", p: "Masculine, feminine or neuter? Every adjective depends on it.", meta: "10 nouns" },
-    { id: "past", hr: "Prošlo vrijeme", p: "On je išao, ona je išla. Pick the right past form.", meta: "10 sentences · on / ona" },
+    { id: "quiz", hr: "Brzi kviz", p: "What does the word mean? Pick the answer before time runs out.", meta: "10 questions · up to 18 miles" },
+    { id: "mem", hr: "Memorija", p: "Turn over the cards and match each Croatian word with its English meaning.", meta: "6 pairs · 12 miles" },
+    { id: "fill", hr: "Dopuni rečenicu", p: "Real sentences from A2 texts. Which word is missing?", meta: "8 sentences · up to 14 miles" },
+    { id: "scr", hr: "Složi riječ", p: "The letters are mixed up. Put the Croatian word back together. LJ, NJ and DŽ are one letter.", meta: "8 words · up to 16 miles" },
+    { id: "odd", hr: "Uljez", p: "Three words belong together. Which one doesn't?", meta: "6 rounds · up to 10 miles" },
+    { id: "gen", hr: "Koji je rod?", p: "Masculine, feminine or neuter? Every adjective depends on it.", meta: "10 nouns · up to 18 miles" },
+    { id: "past", hr: "Prošlo vrijeme", p: "On je išao, ona je išla. Pick the right past form.", meta: "10 sentences · up to 18 miles" },
     { id: "hard", hr: "Teške riječi", p: nHard ? "Words you got wrong. Practise them until they're gone." : "Words you get wrong in the games are collected here.", meta: nHard ? `<b>${nHard}</b> ${nHard === 1 ? "word" : "words"} to practise` : "No tricky words yet", disabled: nHard === 0, cls: "hard" }
   ];
   $("games").innerHTML = games.map((g) =>
