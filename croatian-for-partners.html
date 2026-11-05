@@ -108,6 +108,9 @@
     background: var(--white); border-top: 1px solid rgba(28,28,26,0.1); box-shadow: 0 -4px 20px rgba(28,28,26,0.1);
     padding: 10px 16px; gap: 10px; align-items: center;
   }
+  .sticky-mobile-bar { visibility: hidden; transform: translateY(110%); transition: transform 0.25s ease, visibility 0.25s; }
+  .sticky-mobile-bar.show { visibility: visible; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .sticky-mobile-bar { transition: none; } }
   .sticky-mobile-bar .wa-btn { flex: 0 0 auto; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--teal-light); text-decoration: none; font-size: 1.2rem; }
   .sticky-mobile-bar .btn-primary { flex: 1; text-align: center; background: var(--teal); color: white; padding: 12px 20px; border-radius: 40px; text-decoration: none; font-size: 0.9rem; font-weight: 500; }
   @media (max-width: 900px) {
@@ -208,5 +211,6 @@ document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
   });
 });
 </script>
+<script src="/sticky-bar.js" defer></script>
 </body>
 </html>
