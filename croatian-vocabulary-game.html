@@ -94,7 +94,7 @@
           "name": "How does the voyage from Rijeka to Dubrovnik work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Each correct answer moves your boat 1 or 2 miles. In most exercises you get 2 miles from the third correct answer in a row; each memory pair is worth 2 miles, and each unscrambled word 2 miles, or 1 if you use a hint. A round only counts if you make no mistakes; otherwise the boat sails back to the last port. About six perfect rounds take you all the way to Dubrovnik."
+            "text": "Each correct answer moves your boat 1 or 2 miles. In most exercises you get 2 miles from the third correct answer in a row; each memory pair is worth 2 miles, and each unscrambled word 2 miles, or 1 if you use a hint. A round only counts if you make no mistakes (wrong memory pairs don't count as mistakes); otherwise the boat sails back to the last port. About six perfect rounds take you all the way to Dubrovnik."
           }
         },
         {
@@ -305,6 +305,7 @@
     background-image: repeating-radial-gradient(circle at 50% 120%, transparent 0 10px, rgba(245,240,232,0.14) 10px 12px); }
   .vg .mcard .face { transform: rotateY(180deg); background: var(--paper); border: 2px solid var(--line); font-weight: 500; font-size: clamp(0.85rem, 2.6vw, 1.05rem); line-height: 1.2; text-align: center; overflow-wrap: anywhere; }
   .vg .mcard .face.hr { font-family: var(--font-serif); font-weight: 600; font-size: clamp(0.95rem, 3vw, 1.2rem); }
+  .vg .mcard .face.long { font-size: 0.72rem; line-height: 1.2; padding: 4px; }
   .vg .mcard .face small { display: block; font-family: var(--font-sans); font-size: 0.6rem; color: var(--ink-soft); letter-spacing: 0.1em; margin-bottom: 2px; }
   .vg .mcard.match .face { background: var(--green-light); border-color: var(--green); }
   .vg .mcard.miss .face { background: var(--coral-light); border-color: var(--coral); }
@@ -468,7 +469,7 @@
   </details>
   <details>
     <summary>How does the voyage from Rijeka to Dubrovnik work?</summary>
-    <p>Each correct answer moves your boat 1 or 2 miles. In most exercises you get 2 miles from the third correct answer in a row; each memory pair is worth 2 miles, and each unscrambled word 2 miles, or 1 if you use a hint. A round only counts if you make no mistakes; otherwise the boat sails back to the last port. About six perfect rounds take you all the way to Dubrovnik.</p>
+    <p>Each correct answer moves your boat 1 or 2 miles. In most exercises you get 2 miles from the third correct answer in a row; each memory pair is worth 2 miles, and each unscrambled word 2 miles, or 1 if you use a hint. A round only counts if you make no mistakes (wrong memory pairs don't count as mistakes); otherwise the boat sails back to the last port. About six perfect rounds take you all the way to Dubrovnik.</p>
   </details>
   <details>
     <summary>Why does the game show gender and plural?</summary>
@@ -785,6 +786,7 @@ const ICONS = {
 const TITLES = { quiz: "Speed quiz", mem: "Memory pairs", fill: "Fill the gap", scr: "Unscramble", odd: "Odd one out", gen: "Which gender?", past: "Past tense", hard: "Tricky words", dict: "Word list" };
 function renderHub() {
   const nHard = state.hard.size;
+  const maxHard = nHard <= 2 ? nHard : 2 * Math.min(nHard, 10) - 2;
   const games = [
     { id: "quiz", hr: "Brzi kviz", p: "What does the word mean? Pick the answer before time runs out.", meta: "10 questions · up to 18 miles" },
     { id: "mem", hr: "Memorija", p: "Turn over the cards and match each Croatian word with its English meaning.", meta: "6 pairs · 12 miles" },
@@ -793,7 +795,7 @@ function renderHub() {
     { id: "odd", hr: "Uljez", p: "Three words belong together. Which one doesn't?", meta: "6 rounds · up to 10 miles" },
     { id: "gen", hr: "Koji je rod?", p: "Masculine, feminine or neuter? Every adjective depends on it.", meta: "10 nouns · up to 18 miles" },
     { id: "past", hr: "Prošlo vrijeme", p: "On je išao, ona je išla. Pick the right past form.", meta: "10 sentences · up to 18 miles" },
-    { id: "hard", hr: "Teške riječi", p: nHard ? "Words you got wrong. Practise them until they're gone." : "Words you get wrong in the games are collected here.", meta: nHard ? `<b>${nHard}</b> ${nHard === 1 ? "word" : "words"} to practise` : "No tricky words yet", disabled: nHard === 0, cls: "hard" }
+    { id: "hard", hr: "Teške riječi", p: nHard ? "Words you got wrong. Practise them until they're gone." : "Words you get wrong in the games are collected here.", meta: nHard ? `<b>${nHard}</b> ${nHard === 1 ? "word" : "words"} to practise · up to ${maxHard} ${miles(maxHard)}` : "No tricky words yet", disabled: nHard === 0, cls: "hard" }
   ];
   $("games").innerHTML = games.map((g) =>
     `<button class="game-card ${g.cls || ""}" type="button" data-game="${g.id}" ${g.disabled ? "disabled" : ""}><span class="gico">${ICONS[g.id]}</span><h3>${TITLES[g.id]}</h3><span class="ghr">${g.hr}</span><p>${g.p}</p><span class="meta">${g.meta}</span></button>`).join("");
@@ -936,7 +938,7 @@ function memory() {
   const cards = shuffle(words.flatMap((w, k) => [{ k, lang: "hr", text: w.hr, w }, { k, lang: "en", text: w.en, w }]));
   let open = [], lock = false, moves = 0, found = 0;
   $("stage").innerHTML = `<p class="ask">Find the pairs: a Croatian word and its English meaning.</p>
-    <div class="mem">${cards.map((c, i) => `<button class="mcard" type="button" data-i="${i}" aria-label="Card ${i + 1}"><div class="in"><div class="back-face"></div><div class="face ${c.lang}"><span><small>${c.lang.toUpperCase()}</small>${esc(c.text)}</span></div></div></button>`).join("")}</div>
+    <div class="mem">${cards.map((c, i) => `<button class="mcard" type="button" data-i="${i}" aria-label="Card ${i + 1}"><div class="in"><div class="back-face"></div><div class="face ${c.lang} ${c.text.length > 12 ? "long" : ""}"><span><small>${c.lang.toUpperCase()}</small>${esc(c.text)}</span></div></div></button>`).join("")}</div>
     <p class="feedback" id="fb"></p>`;
   const els = [...document.querySelectorAll(".vg .mcard")];
   const upd = () => { $("gProg").textContent = `pairs ${found}/6 · moves ${moves}`; };
